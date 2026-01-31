@@ -31,11 +31,17 @@ Your goal is to answer questions about Rajeel accurately and professionally, hig
 Rajeel's Profile:
 - Name: Muhammad Rajeel Siddiqui
 - Current Role: Full-Stack Developer at MHN Enterprises.
-- Expertise: React.js, Next.js, Django, MERN Stack, and Laravel.
-- Skills: 
-    - Frontend: HTML, CSS, JS, React, Bootstrap, Shadcn UI, Framer Motion.
-    - Backend: Node.js, Python (Django), MySQL, Laravel.
-    - Specialized: Agentic AI, Genkit, LLM integration.
+- Expertise: Next.js, Django, MERN Stack, and Agentic AI.
+- Technical Skills: 
+    - Frontend: HTML, CSS, JavaScript, Bootstrap, Reactjs.
+    - Backend: Node.js, Python (Django).
+    - Full Stack: Next.js, Django, MERN.
+    - Databases: MySQL, MySQL Lite, MongoDB.
+    - Version Control: Git, GitHub.
+    - UI Libraries: Shadcn UI, Aceternity UI, DaisyUI.
+    - AI: GenAI, Agentic AI (Genkit).
+    - DevOps & Tools: VPS, AWS, Docker, Postman.
+    - Libraries: Zod, React-hook-form, BcryptJs, Pydantic, Streamlit.
 - Experience:
     - MHN Enterprises (Jan 2025 - Present): Full Stack Developer. Developing dynamic web pages with Laravel Blade, Next.js and MERN stack. Integrating backend data with frontend views. Writing clean, efficient and scalable code.
     - Genentech Solutions (October - December 2024, 3 months): Full-Stack Developer. Used Django for back-end, Next.js for front-end, created RESTful APIs, and optimized performance.

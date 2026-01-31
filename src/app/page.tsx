@@ -25,7 +25,11 @@ import {
   Database,
   Layers,
   Cpu,
-  ArrowUpRight
+  ArrowUpRight,
+  Terminal,
+  Server,
+  Cloud,
+  Wrench
 } from "lucide-react";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
@@ -299,39 +303,51 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        {/* Expertise Section */}
+        {/* Skills Section */}
         <section id="skills" className="space-y-12">
-          <SectionHeader title="Expertise" />
+          <SectionHeader title="Skills" />
           <motion.div 
             variants={staggerContainer}
             initial="initial"
             whileInView="whileInView"
             viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             <SkillCard 
-              title="Frontend" 
-              skills={["React", "Next.js", "TypeScript", "Tailwind"]} 
+              title="Frontend & UI" 
+              skills={["HTML", "CSS", "JavaScript", "Bootstrap", "Reactjs", "Shadcn", "Aceternity", "DaisyUI"]} 
               icon={<Globe size={24} className="text-cyan-400" />} 
               borderColor="border-cyan-500/30" 
             />
             <SkillCard 
-              title="Backend" 
-              skills={["Node.js", "Django", "Python", "MySQL"]} 
-              icon={<Code2 size={24} className="text-emerald-400" />} 
+              title="Backend & Full Stack" 
+              skills={["Node", "Python", "Nextjs", "Django", "MERN"]} 
+              icon={<Server size={24} className="text-emerald-400" />} 
               borderColor="border-emerald-500/30" 
             />
             <SkillCard 
-              title="AI / ML" 
-              skills={["Agentic AI", "Genkit", "Gemini", "LLMs"]} 
-              icon={<Cpu size={24} className="text-purple-400" />} 
+              title="Databases & AI" 
+              skills={["MySQL", "MySQL Lite", "MONGODB", "GENAI", "AGENTIC AI"]} 
+              icon={<Database size={24} className="text-purple-400" />} 
               borderColor="border-purple-500/30" 
             />
             <SkillCard 
-              title="Tools" 
-              skills={["Docker", "Firebase", "Laravel", "Git"]} 
-              icon={<Layers size={24} className="text-blue-400" />} 
+              title="DevOps & Cloud" 
+              skills={["VPS", "AWS", "Docker", "Git", "GitHub", "Postman"]} 
+              icon={<Cloud size={24} className="text-blue-400" />} 
               borderColor="border-blue-500/30" 
+            />
+            <SkillCard 
+              title="Libraries" 
+              skills={["Zod", "React-hooks-form", "BcryptJs", "Pydantic", "Streamlit"]} 
+              icon={<Wrench size={24} className="text-orange-400" />} 
+              borderColor="border-orange-500/30" 
+            />
+            <SkillCard 
+              title="Specialized AI" 
+              skills={["Genkit", "Gemini", "LLMs", "Autonomous Agents"]} 
+              icon={<Cpu size={24} className="text-red-400" />} 
+              borderColor="border-red-500/30" 
             />
           </motion.div>
         </section>
@@ -647,3 +663,4 @@ function ContactLink({ icon, label, href }: { icon: React.ReactNode, label: stri
     </motion.a>
   );
 }
+
