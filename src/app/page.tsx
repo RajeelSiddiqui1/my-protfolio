@@ -277,8 +277,8 @@ export default function PortfolioPage() {
               <div className="grid gap-4">
                 <FeatureItem 
                   icon={<Award className="text-secondary h-5 w-5" />}
-                  title="Hackathon Winner"
-                  desc="Winner of UI/UX implementation hackathon."
+                  title="TechWaze 3rd Position"
+                  desc="Secured 3rd position in TechWaze competition at Aptech. I was responsible for the AI development for the team."
                 />
                 <FeatureItem 
                   icon={<Zap className="text-primary h-5 w-5" />}
@@ -602,7 +602,7 @@ function EducationCard({ title, institution, status, desc, icon }: { title: stri
       <div>
         <h4 className="text-sm font-black uppercase tracking-wider leading-tight group-hover:text-primary transition-colors">{title}</h4>
         <p className="text-xs text-primary font-bold mt-1">{institution}</p>
-        {desc && <p className="text-[11px] text-muted-foreground mt-3 leading-relaxed opacity-70">{desc}</p>}
+        {desc && <p className="text-[11px] text-muted-foreground mt-3 leisure-relaxed opacity-70">{desc}</p>}
       </div>
     </motion.div>
   );
@@ -663,4 +663,3 @@ function ContactLink({ icon, label, href }: { icon: React.ReactNode, label: stri
     </motion.a>
   );
 }
-

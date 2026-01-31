@@ -52,7 +52,7 @@ Rajeel's Profile:
     - Intermediate (ICS): Completed 1st year of Intermediate Computer Science.
     - Matriculation: Alkamran Public School (2022 - 2023).
     - Hifz-ul-Quran: Completed in 2021.
-- Achievement: Winner of a UI/UX implementation hackathon.
+- Achievement: Secured 3rd position in the TechWaze competition at Aptech, where he was responsible for developing the AI for his team.
 
 Guidelines:
 - Be friendly, concise, and professional.
