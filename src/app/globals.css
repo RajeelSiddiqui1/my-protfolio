@@ -29,7 +29,7 @@
   .dark {
     --background: 240 10% 4%;
     --foreground: 0 0% 88%;
-    --card: 0 0% 12%;
+    --card: 0 0% 10%;
     --card-foreground: 0 0% 88%;
     --popover: 0 0% 12%;
     --popover-foreground: 0 0% 88%;
@@ -37,14 +37,14 @@
     --primary-foreground: 240 10% 4%;
     --secondary: 45 100% 51%;
     --secondary-foreground: 240 10% 4%;
-    --muted: 0 0% 17%;
+    --muted: 0 0% 15%;
     --muted-foreground: 0 0% 67%;
     --accent: 199 91% 64%;
     --accent-foreground: 240 10% 4%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 17%;
-    --input: 0 0% 17%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
     --ring: 199 91% 64%;
   }
 }
@@ -52,42 +52,47 @@
 @layer components {
   .neumorphic-flat {
     @apply bg-card;
-    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.1), -4px -4px 12px rgba(255, 255, 255, 0.8);
+    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.05), -4px -4px 12px rgba(255, 255, 255, 0.8);
   }
 
   .dark .neumorphic-flat {
-    background: #1e1e1e;
-    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.6), -4px -4px 12px rgba(255, 255, 255, 0.03);
+    background: #121212;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4), -5px -5px 15px rgba(255, 255, 255, 0.02);
   }
 
   .neumorphic-inset {
     @apply bg-card;
-    box-shadow: inset 8px 8px 16px rgba(0, 0, 0, 0.1), inset -4px -4px 12px rgba(255, 255, 255, 0.8);
+    box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.05), inset -2px -2px 6px rgba(255, 255, 255, 0.8);
   }
 
   .dark .neumorphic-inset {
-    background: #1e1e1e;
-    box-shadow: inset 8px 8px 16px rgba(0, 0, 0, 0.6), inset -4px -4px 12px rgba(255, 255, 255, 0.03);
+    background: #121212;
+    box-shadow: inset 6px 6px 12px rgba(0, 0, 0, 0.5), inset -3px -3px 9px rgba(255, 255, 255, 0.01);
   }
 
   .glassmorphism {
-    background: rgba(var(--primary), 0.03);
+    background: rgba(var(--background), 0.7);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(var(--foreground), 0.05);
+    border: 1px solid rgba(var(--foreground), 0.08);
   }
   
   .dark .glassmorphism {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(10, 10, 10, 0.75);
     border: 1px solid rgba(255, 255, 255, 0.05);
   }
 
   .neon-glow {
-    box-shadow: 0 0 10px rgba(79, 195, 247, 0.4), 0 0 20px rgba(79, 195, 247, 0.2);
+    box-shadow: 0 0 15px rgba(79, 195, 247, 0.3), 0 0 30px rgba(79, 195, 247, 0.1);
   }
 
   .neon-text-glow {
-    text-shadow: 0 0 8px rgba(79, 195, 247, 0.6);
+    text-shadow: 0 0 10px rgba(79, 195, 247, 0.5);
+  }
+
+  .bg-mesh {
+    background-image: radial-gradient(at 0% 0%, hsla(199, 91%, 64%, 0.1) 0, transparent 50%),
+                      radial-gradient(at 100% 100%, hsla(45, 100% 51%, 0.05) 0, transparent 50%);
   }
 }
 
@@ -96,7 +101,11 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground selection:bg-primary/30 selection:text-primary;
+    @apply bg-background text-foreground selection:bg-primary/30 selection:text-primary overflow-x-hidden;
     scroll-behavior: smooth;
   }
+}
+
+.perspective-1000 {
+  perspective: 1000px;
 }
