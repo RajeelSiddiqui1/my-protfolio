@@ -23,7 +23,8 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { PlaceHolderImages, ProfileImage } from "@/lib/placeholder-images";
+import { cn } from "@/lib/utils";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -65,9 +66,15 @@ export default function PortfolioPage() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="w-32 h-32 rounded-full border-2 border-primary/20 p-2 neon-glow mb-8 mx-auto">
-              <div className="w-full h-full rounded-full bg-muted flex items-center justify-center overflow-hidden">
-                <User size={64} className="text-primary opacity-50" />
+            <div className="w-40 h-40 rounded-full border-2 border-primary/20 p-2 neon-glow mb-8 mx-auto relative">
+              <div className="w-full h-full rounded-full bg-muted flex items-center justify-center overflow-hidden relative">
+                <Image 
+                  src={ProfileImage.imageUrl} 
+                  alt={ProfileImage.description}
+                  fill
+                  className="object-cover"
+                  data-ai-hint={ProfileImage.imageHint}
+                />
               </div>
             </div>
           </motion.div>
@@ -142,12 +149,50 @@ export default function PortfolioPage() {
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            <SkillCard title="Frontend" skills={["HTML", "CSS", "JS", "React", "Bootstrap"]} icon={<Globe className="text-primary" />} className="md:col-span-2" />
-            <SkillCard title="Backend" skills={["Node.js", "Python", "Django", "C#"]} icon={<Code2 className="text-primary" />} />
-            <SkillCard title="Full Stack" skills={["Next.js", "MERN", "Laravel"]} icon={<Zap className="text-primary" />} />
-            <SkillCard title="Databases" skills={["MySQL", "MongoDB"]} icon={<Briefcase className="text-primary" />} />
-            <SkillCard title="DevOps" skills={["Docker", "VPS", "AWS"]} icon={<ExternalLink className="text-primary" />} className="md:col-span-2" />
-            <SkillCard title="Libraries" skills={["Shadcn", "Aceternity", "Zod", "RHF"]} icon={<Award className="text-primary" />} />
+            <SkillCard 
+              title="Frontend" 
+              skills={["HTML", "CSS", "JS", "React", "Bootstrap"]} 
+              icon={<Globe className="text-cyan-400" />} 
+              colorClass="border-cyan-500/20"
+              badgeClass="bg-cyan-500/10 text-cyan-400 border-cyan-500/30 hover:bg-cyan-500/20"
+              className="md:col-span-2" 
+            />
+            <SkillCard 
+              title="Backend" 
+              skills={["Node.js", "Python", "Django", "C#"]} 
+              icon={<Code2 className="text-emerald-400" />} 
+              colorClass="border-emerald-500/20"
+              badgeClass="bg-emerald-500/10 text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/20"
+            />
+            <SkillCard 
+              title="Full Stack" 
+              skills={["Next.js", "MERN", "Laravel"]} 
+              icon={<Zap className="text-purple-400" />} 
+              colorClass="border-purple-500/20"
+              badgeClass="bg-purple-500/10 text-purple-400 border-purple-500/30 hover:bg-purple-500/20"
+            />
+            <SkillCard 
+              title="Databases" 
+              skills={["MySQL", "MongoDB"]} 
+              icon={<Briefcase className="text-amber-400" />} 
+              colorClass="border-amber-500/20"
+              badgeClass="bg-amber-500/10 text-amber-400 border-amber-500/30 hover:bg-amber-500/20"
+            />
+            <SkillCard 
+              title="DevOps" 
+              skills={["Docker", "VPS", "AWS"]} 
+              icon={<ExternalLink className="text-blue-400" />} 
+              colorClass="border-blue-500/20"
+              badgeClass="bg-blue-500/10 text-blue-400 border-blue-500/30 hover:bg-blue-500/20"
+              className="md:col-span-2" 
+            />
+            <SkillCard 
+              title="Libraries" 
+              skills={["Shadcn", "Aceternity", "Zod", "RHF"]} 
+              icon={<Award className="text-rose-400" />} 
+              colorClass="border-rose-500/20"
+              badgeClass="bg-rose-500/10 text-rose-400 border-rose-500/30 hover:bg-rose-500/20"
+            />
           </div>
         </section>
 
@@ -276,11 +321,29 @@ export default function PortfolioPage() {
   );
 }
 
-function SkillCard({ title, skills, icon, className = "" }: { title: string; skills: string[]; icon: React.ReactNode; className?: string }) {
+function SkillCard({ 
+  title, 
+  skills, 
+  icon, 
+  className = "", 
+  colorClass = "", 
+  badgeClass = "" 
+}: { 
+  title: string; 
+  skills: string[]; 
+  icon: React.ReactNode; 
+  className?: string;
+  colorClass?: string;
+  badgeClass?: string;
+}) {
   return (
     <motion.div
       whileHover={{ scale: 1.02 }}
-      className={`p-6 neumorphic-flat rounded-2xl border border-primary/5 group ${className}`}
+      className={cn(
+        "p-6 neumorphic-flat rounded-2xl border group transition-all duration-300",
+        colorClass || "border-primary/5",
+        className
+      )}
     >
       <div className="flex items-center gap-3 mb-4">
         {icon}
@@ -288,7 +351,14 @@ function SkillCard({ title, skills, icon, className = "" }: { title: string; ski
       </div>
       <div className="flex flex-wrap gap-2">
         {skills.map((skill) => (
-          <Badge key={skill} variant="secondary" className="bg-primary/5 hover:bg-primary/20 hover:neon-glow transition-all">
+          <Badge 
+            key={skill} 
+            variant="secondary" 
+            className={cn(
+              "transition-all duration-300",
+              badgeClass || "bg-primary/5 hover:bg-primary/20 hover:neon-glow"
+            )}
+          >
             {skill}
           </Badge>
         ))}

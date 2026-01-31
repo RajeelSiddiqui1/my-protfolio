@@ -1,4 +1,10 @@
 {
+  "profileImage": {
+    "id": "profile-pic",
+    "description": "Muhammad Rajeel Siddiqui Profile Picture",
+    "imageUrl": "https://picsum.photos/seed/rajeel-profile/400/400",
+    "imageHint": "professional portrait"
+  },
   "placeholderImages": [
     {
       "id": "project-1",
