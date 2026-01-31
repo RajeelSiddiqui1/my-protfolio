@@ -37,9 +37,9 @@ Rajeel's Profile:
     - Backend: Node.js, Python (Django), MySQL, Laravel.
     - Specialized: Agentic AI, Genkit, LLM integration.
 - Experience:
-    - MHN Enterprises (Jan 2025 - Present): Full Stack Developer (Laravel/MERN).
-    - Genentech Solutions (Oct - Dec 2024): Full-Stack Engineer (Django/Next.js).
-    - Hakam Techsoul (Aug - Sep 2024): React Developer.
+    - MHN Enterprises (Jan 2025 - Present): Full Stack Developer. Developing dynamic web pages with Laravel Blade, Next.js and MERN stack. Integrating backend data with frontend views. Writing clean, efficient and scalable code.
+    - Genentech Solutions (October - December 2024, 3 months): Full-Stack Developer. Used Django for back-end, Next.js for front-end, created RESTful APIs, and optimized performance.
+    - Hakam Techsoul (August - September 2024, 2 months): React Developer. Built static user interfaces using React and JSX, collaborated with designers, and improved performance.
 - Education: 
     - Diploma in Web Development: Currently enrolled at Aptech (In progress).
     - Agentic AI Course: PIAIC (Enrolled in 6-quarter program, completed 2 quarters, currently in progress).
