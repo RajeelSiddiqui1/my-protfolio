@@ -21,7 +21,10 @@ import {
   Send,
   Loader2,
   Menu,
-  GraduationCap
+  GraduationCap,
+  Database,
+  Layers,
+  Cpu
 } from "lucide-react";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
@@ -294,7 +297,7 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        {/* Skills */}
+        {/* Expertise Section (Refined Tags) */}
         <section id="skills" className="space-y-10">
           <SectionHeader title="Expertise" />
           <motion.div 
@@ -304,10 +307,30 @@ export default function PortfolioPage() {
             viewport={{ once: true }}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
           >
-            <SkillCard title="Frontend" skills={["React", "Next.js", "TypeScript", "Tailwind"]} icon={<Globe size={18} className="text-cyan-500" />} colorClass="border-cyan-500/20" />
-            <SkillCard title="Backend" skills={["Node.js", "Django", "Python", "MySQL"]} icon={<Code2 size={18} className="text-emerald-500" />} colorClass="border-emerald-500/20" />
-            <SkillCard title="AI / ML" skills={["Agentic AI", "Genkit", "Gemini"]} icon={<Zap size={18} className="text-purple-500" />} colorClass="border-purple-500/20" />
-            <SkillCard title="Infrastructure" skills={["Docker", "AWS", "Firebase"]} icon={<ExternalLink size={18} className="text-blue-500" />} colorClass="border-blue-500/20" />
+            <SkillCard 
+              title="Frontend" 
+              skills={["React", "Next.js", "TypeScript", "Tailwind"]} 
+              icon={<Globe size={20} className="text-cyan-400" />} 
+              borderColor="border-cyan-500/30" 
+            />
+            <SkillCard 
+              title="Backend" 
+              skills={["Node.js", "Django", "Python", "MySQL"]} 
+              icon={<Code2 size={20} className="text-emerald-400" />} 
+              borderColor="border-emerald-500/30" 
+            />
+            <SkillCard 
+              title="AI / ML" 
+              skills={["Agentic AI", "Genkit", "Gemini"]} 
+              icon={<Cpu size={20} className="text-purple-400" />} 
+              borderColor="border-purple-500/30" 
+            />
+            <SkillCard 
+              title="Infrastructure" 
+              skills={["Docker", "AWS", "Firebase"]} 
+              icon={<Layers size={20} className="text-blue-400" />} 
+              borderColor="border-blue-500/30" 
+            />
           </motion.div>
         </section>
 
@@ -439,9 +462,9 @@ export default function PortfolioPage() {
 
 function SectionHeader({ title }: { title: string }) {
   return (
-    <motion.div {...fadeInUp} className="space-y-2">
-      <h2 className="text-xl md:text-2xl font-black font-headline tracking-widest uppercase">{title}</h2>
-      <div className="w-8 h-1 bg-primary rounded-full neon-glow"></div>
+    <motion.div {...fadeInUp} className="space-y-3">
+      <h2 className="text-2xl md:text-3xl font-black font-headline tracking-widest uppercase">{title}</h2>
+      <div className="w-10 h-[3px] bg-primary rounded-full neon-glow"></div>
     </motion.div>
   );
 }
@@ -458,16 +481,28 @@ function FeatureItem({ icon, title, desc }: { icon: React.ReactNode, title: stri
   );
 }
 
-function SkillCard({ title, skills, icon, colorClass }: { title: string, skills: string[], icon: React.ReactNode, colorClass: string }) {
+function SkillCard({ title, skills, icon, borderColor }: { title: string, skills: string[], icon: React.ReactNode, borderColor: string }) {
   return (
-    <motion.div variants={fadeInUp} className={cn("p-4 neumorphic-flat rounded-xl border", colorClass)}>
-      <div className="flex items-center gap-2 mb-3">
-        {icon}
-        <h3 className="text-[10px] font-black uppercase tracking-widest">{title}</h3>
+    <motion.div 
+      variants={fadeInUp} 
+      className={cn(
+        "p-6 rounded-xl border bg-card/40 backdrop-blur-sm transition-all hover:bg-card/60", 
+        borderColor
+      )}
+    >
+      <div className="flex items-center gap-3 mb-6">
+        <div className="p-1.5 rounded-md bg-background/50">{icon}</div>
+        <h3 className="text-sm font-black uppercase tracking-[0.15em] opacity-90">{title}</h3>
       </div>
-      <div className="flex flex-wrap gap-1">
+      <div className="flex flex-wrap gap-2">
         {skills.map((s) => (
-          <Badge key={s} variant="secondary" className="text-[9px] px-1.5 py-0 bg-primary/5 font-bold">{s}</Badge>
+          <Badge 
+            key={s} 
+            variant="outline" 
+            className="text-[10px] px-2.5 py-0.5 rounded-full bg-background/30 border-white/10 font-medium tracking-tight opacity-70 hover:opacity-100 transition-opacity"
+          >
+            {s}
+          </Badge>
         ))}
       </div>
     </motion.div>
