@@ -1,4 +1,3 @@
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -17,12 +16,14 @@ import {
   User,
   Zap,
   Globe,
-  ChevronRight
+  ChevronRight,
+  Sun,
+  Moon
 } from "lucide-react";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
 import { PlaceHolderImages, ProfileImage } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 
@@ -34,8 +35,23 @@ const fadeIn = {
 };
 
 export default function PortfolioPage() {
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+  };
+
   return (
-    <div className="min-h-screen bg-background text-foreground font-body">
+    <div className="min-h-screen bg-background text-foreground font-body transition-colors duration-300">
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 glassmorphism px-6 py-4 flex justify-between items-center">
         <div className="text-xl font-bold tracking-tighter text-primary neon-text-glow">
@@ -52,9 +68,19 @@ export default function PortfolioPage() {
             </a>
           ))}
         </div>
-        <Button variant="outline" size="sm" className="neumorphic-flat border-none text-xs hover:neon-glow">
-          Let's Chat
-        </Button>
+        <div className="flex items-center gap-4">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={toggleTheme}
+            className="rounded-full hover:bg-primary/10"
+          >
+            {theme === 'light' ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
+          </Button>
+          <Button variant="outline" size="sm" className="neumorphic-flat border-none text-xs hover:neon-glow">
+            Let's Chat
+          </Button>
+        </div>
       </nav>
 
       <main className="pt-24 pb-12 px-6 max-w-6xl mx-auto space-y-32">
@@ -152,46 +178,46 @@ export default function PortfolioPage() {
             <SkillCard 
               title="Frontend" 
               skills={["HTML", "CSS", "JS", "React", "Bootstrap"]} 
-              icon={<Globe className="text-cyan-400" />} 
+              icon={<Globe className="text-cyan-500" />} 
               colorClass="border-cyan-500/20"
-              badgeClass="bg-cyan-500/10 text-cyan-400 border-cyan-500/30 hover:bg-cyan-500/20"
+              badgeClass="bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border-cyan-500/30 hover:bg-cyan-500/20"
               className="md:col-span-2" 
             />
             <SkillCard 
               title="Backend" 
               skills={["Node.js", "Python", "Django", "C#"]} 
-              icon={<Code2 className="text-emerald-400" />} 
+              icon={<Code2 className="text-emerald-500" />} 
               colorClass="border-emerald-500/20"
-              badgeClass="bg-emerald-500/10 text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/20"
+              badgeClass="bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/20"
             />
             <SkillCard 
               title="Full Stack" 
               skills={["Next.js", "MERN", "Laravel"]} 
-              icon={<Zap className="text-purple-400" />} 
+              icon={<Zap className="text-purple-500" />} 
               colorClass="border-purple-500/20"
-              badgeClass="bg-purple-500/10 text-purple-400 border-purple-500/30 hover:bg-purple-500/20"
+              badgeClass="bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/30 hover:bg-purple-500/20"
             />
             <SkillCard 
               title="Databases" 
               skills={["MySQL", "MongoDB"]} 
-              icon={<Briefcase className="text-amber-400" />} 
+              icon={<Briefcase className="text-amber-500" />} 
               colorClass="border-amber-500/20"
-              badgeClass="bg-amber-500/10 text-amber-400 border-amber-500/30 hover:bg-amber-500/20"
+              badgeClass="bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/30 hover:bg-amber-500/20"
             />
             <SkillCard 
               title="DevOps" 
               skills={["Docker", "VPS", "AWS"]} 
-              icon={<ExternalLink className="text-blue-400" />} 
+              icon={<ExternalLink className="text-blue-500" />} 
               colorClass="border-blue-500/20"
-              badgeClass="bg-blue-500/10 text-blue-400 border-blue-500/30 hover:bg-blue-500/20"
+              badgeClass="bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/30 hover:bg-blue-500/20"
               className="md:col-span-2" 
             />
             <SkillCard 
               title="Libraries" 
               skills={["Shadcn", "Aceternity", "Zod", "RHF"]} 
-              icon={<Award className="text-rose-400" />} 
+              icon={<Award className="text-rose-500" />} 
               colorClass="border-rose-500/20"
-              badgeClass="bg-rose-500/10 text-rose-400 border-rose-500/30 hover:bg-rose-500/20"
+              badgeClass="bg-rose-500/10 text-rose-600 dark:text-rose-400 border-rose-500/30 hover:bg-rose-500/20"
             />
           </div>
         </section>
