@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
   Github, 
   Linkedin, 
@@ -18,14 +18,20 @@ import {
   Globe,
   ChevronRight,
   Sun,
-  Moon
+  Moon,
+  MessageSquare,
+  X,
+  Send,
+  Loader2
 } from "lucide-react";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
 import { PlaceHolderImages, ProfileImage } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
+import { askAssistant } from "@/ai/flows/assistant-flow";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -36,6 +42,11 @@ const fadeIn = {
 
 export default function PortfolioPage() {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [chatInput, setChatInput] = useState("");
+  const [messages, setMessages] = useState<{ role: 'user' | 'model', content: string }[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -46,8 +57,37 @@ export default function PortfolioPage() {
     }
   }, [theme]);
 
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
+  }, [messages]);
+
   const toggleTheme = () => {
     setTheme(prev => prev === 'light' ? 'dark' : 'light');
+  };
+
+  const handleSendMessage = async (e?: React.FormEvent) => {
+    e?.preventDefault();
+    if (!chatInput.trim() || isLoading) return;
+
+    const userMsg = chatInput;
+    setChatInput("");
+    setMessages(prev => [...prev, { role: 'user', content: userMsg }]);
+    setIsLoading(true);
+
+    try {
+      const response = await askAssistant({ 
+        message: userMsg, 
+        history: messages.slice(-5) 
+      });
+      setMessages(prev => [...prev, { role: 'model', content: response.reply }]);
+    } catch (error) {
+      console.error("AI Error:", error);
+      setMessages(prev => [...prev, { role: 'model', content: "Sorry, I'm having trouble connecting right now. Feel free to contact Rajeel directly!" }]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -343,6 +383,86 @@ export default function PortfolioPage() {
           </motion.div>
         </footer>
       </main>
+
+      {/* AI Assistant Floating Chat */}
+      <div className="fixed bottom-6 right-6 z-[60]">
+        <AnimatePresence>
+          {isChatOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.95 }}
+              className="mb-4 w-[90vw] md:w-[400px] h-[500px] glassmorphism rounded-2xl border border-primary/20 shadow-2xl flex flex-col overflow-hidden"
+            >
+              <div className="p-4 border-b border-primary/10 flex justify-between items-center bg-primary/5">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+                    <Zap size={18} className="text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold">Rajeel's Assistant</h4>
+                    <p className="text-[10px] text-muted-foreground">Ask me anything about Rajeel</p>
+                  </div>
+                </div>
+                <Button variant="ghost" size="icon" onClick={() => setIsChatOpen(false)} className="rounded-full">
+                  <X size={18} />
+                </Button>
+              </div>
+
+              <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4">
+                {messages.length === 0 && (
+                  <div className="text-center py-8 space-y-2">
+                    <MessageSquare size={32} className="mx-auto text-primary/30" />
+                    <p className="text-sm text-muted-foreground">Hi! I'm Rajeel's AI assistant. How can I help you today?</p>
+                  </div>
+                )}
+                {messages.map((msg, i) => (
+                  <div key={i} className={cn("flex", msg.role === 'user' ? "justify-end" : "justify-start")}>
+                    <div className={cn(
+                      "max-w-[80%] p-3 rounded-2xl text-sm",
+                      msg.role === 'user' 
+                        ? "bg-primary text-primary-foreground rounded-tr-none" 
+                        : "bg-muted text-foreground rounded-tl-none border border-primary/5"
+                    )}>
+                      {msg.content}
+                    </div>
+                  </div>
+                ))}
+                {isLoading && (
+                  <div className="flex justify-start">
+                    <div className="bg-muted p-3 rounded-2xl rounded-tl-none border border-primary/5">
+                      <Loader2 className="h-4 w-4 animate-spin text-primary" />
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <form onSubmit={handleSendMessage} className="p-4 border-t border-primary/10 bg-background/50 flex gap-2">
+                <Input 
+                  placeholder="Type a message..." 
+                  value={chatInput}
+                  onChange={(e) => setChatInput(e.target.value)}
+                  className="bg-background/50 border-primary/10 focus-visible:ring-primary h-10"
+                />
+                <Button type="submit" size="icon" disabled={!chatInput.trim() || isLoading} className="shrink-0 rounded-full h-10 w-10">
+                  <Send size={18} />
+                </Button>
+              </form>
+            </motion.div>
+          )}
+        </AnimatePresence>
+        
+        <Button 
+          size="icon" 
+          onClick={() => setIsChatOpen(!isChatOpen)}
+          className={cn(
+            "w-14 h-14 rounded-full shadow-xl neon-glow transition-all duration-300",
+            isChatOpen ? "bg-destructive hover:bg-destructive/90" : "bg-primary hover:bg-primary/90"
+          )}
+        >
+          {isChatOpen ? <X /> : <MessageSquare />}
+        </Button>
+      </div>
     </div>
   );
 }
