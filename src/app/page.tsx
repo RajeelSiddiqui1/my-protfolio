@@ -16,7 +16,8 @@ import {
   Code2, 
   User,
   Zap,
-  Globe
+  Globe,
+  ChevronRight
 } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -40,7 +41,7 @@ export default function PortfolioPage() {
           MR<span className="text-foreground">.</span>
         </div>
         <div className="hidden md:flex gap-8 text-sm font-medium">
-          {["About", "Skills", "Experience", "Projects", "Contact"].map((item) => (
+          {["About", "Skills", "Experience", "Education", "Projects", "Contact"].map((item) => (
             <a 
               key={item} 
               href={`#${item.toLowerCase()}`} 
@@ -65,7 +66,7 @@ export default function PortfolioPage() {
             className="relative"
           >
             <div className="w-32 h-32 rounded-full border-2 border-primary/20 p-2 neon-glow mb-8 mx-auto">
-              <div className="w-full h-full rounded-full bg-muted flex items-center justify-center">
+              <div className="w-full h-full rounded-full bg-muted flex items-center justify-center overflow-hidden">
                 <User size={64} className="text-primary opacity-50" />
               </div>
             </div>
@@ -76,7 +77,7 @@ export default function PortfolioPage() {
               Muhammad <span className="text-primary neon-text-glow">Rajeel</span> Siddiqui
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-              Web Developer & Dedicated Front-End Developer building high-performance web apps.
+              Full-Stack Developer Specializing in React, Next.js, and Django.
             </p>
           </motion.div>
 
@@ -101,7 +102,7 @@ export default function PortfolioPage() {
             <motion.div {...fadeIn} className="space-y-6">
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Expertise in <span className="text-primary font-semibold">React.js, Next.js, and Django</span>. 
-                Passionate about creating fluid user experiences with modern toolsets.
+                Passionate about creating fluid user experiences and robust backend systems.
               </p>
               <div className="p-6 neumorphic-flat rounded-2xl border border-primary/10">
                 <div className="flex items-start gap-4">
@@ -114,10 +115,10 @@ export default function PortfolioPage() {
               </div>
               <div className="p-6 glassmorphism rounded-2xl border border-primary/5">
                 <div className="flex items-start gap-4">
-                  <BookOpen className="text-primary shrink-0 mt-1" />
+                  <Zap size={24} className="text-primary shrink-0 mt-1" />
                   <div>
-                    <h4 className="font-bold text-primary">Hifz-ul-Quran (2021)</h4>
-                    <p className="text-sm text-muted-foreground mt-1">A significant personal achievement reflecting dedication and discipline.</p>
+                    <h4 className="font-bold text-primary">Problem Solver</h4>
+                    <p className="text-sm text-muted-foreground mt-1">Focused on building scalable solutions for complex web challenges.</p>
                   </div>
                 </div>
               </div>
@@ -127,13 +128,13 @@ export default function PortfolioPage() {
                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none"></div>
                <div className="text-center space-y-4">
                   <Zap size={48} className="mx-auto text-primary animate-pulse" />
-                  <p className="font-bold text-xl">Turning complex problems into elegant solutions</p>
+                  <p className="font-bold text-xl">Turning complex ideas into interactive realities</p>
                </div>
             </motion.div>
           </div>
         </section>
 
-        {/* Skills - Bento Grid */}
+        {/* Skills */}
         <section id="skills" className="space-y-12">
           <motion.div {...fadeIn} className="text-center">
             <h2 className="text-3xl font-bold mb-4 font-headline">Technical Skills</h2>
@@ -150,64 +151,99 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        {/* Work Experience - Timeline */}
+        {/* Work Experience */}
         <section id="experience" className="space-y-12">
           <motion.div {...fadeIn} className="text-center">
-            <h2 className="text-3xl font-bold mb-4 font-headline">Professional Journey</h2>
+            <h2 className="text-3xl font-bold mb-4 font-headline">Work Experience</h2>
             <div className="w-20 h-1 bg-primary mx-auto rounded-full neon-glow"></div>
           </motion.div>
 
-          <div className="relative space-y-12 before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-primary before:to-transparent md:before:mx-auto md:before:translate-x-0">
+          <div className="space-y-8">
             <TimelineItem 
               title="MHN Enterprises"
-              role="Laravel Blade & MERN Stack"
               period="Jan 2025 - Present"
-              description="Developing full-stack applications focusing on Laravel blade templates and modern MERN architecture."
-              align="right"
+              role="Full Stack Developer"
+              bullets={[
+                "Developing dynamic web pages with Laravel Blade, Nextjs and MERN stack.",
+                "Integrating backend data with frontend views.",
+                "Writing clean, efficient, and scalable code.",
+                "Collaborating to implement and enhance features."
+              ]}
             />
             <TimelineItem 
               title="Genentech Solutions"
-              role="Django & Next.js REST APIs"
-              period="Oct - Dec 2024"
-              description="Engineered robust RESTful services and integrated them with performant Next.js frontend interfaces."
-              align="left"
+              period="Oct - Dec 2024 (3 months)"
+              role="Full-Stack Developer"
+              bullets={[
+                "Working as a Full-Stack Developer at Genetech Solutions",
+                "Using Django for back-end development",
+                "Using Next.js for front-end development",
+                "Creating RESTful APIs",
+                "Optimizing application performance"
+              ]}
             />
             <TimelineItem 
               title="Hakam Techsoul"
-              role="React + UX Enhancement"
-              period="Aug - Sep 2024"
-              description="Focused on enhancing user experience through component optimization and intuitive UI design."
-              align="right"
+              period="Aug - Sep 2024 (2 months)"
+              role="React Developer"
+              bullets={[
+                "Worked as a React Developer at Hakam Techsoul",
+                "Built static user interfaces using React and JSX",
+                "Collaborated with designers to enhance UX",
+                "Improved application performance"
+              ]}
             />
           </div>
         </section>
 
-        {/* Education & Projects */}
-        <section id="projects" className="space-y-12">
+        {/* Education Section */}
+        <section id="education" className="space-y-12">
           <motion.div {...fadeIn} className="text-center">
-            <h2 className="text-3xl font-bold mb-4 font-headline">Education & Creations</h2>
+            <h2 className="text-3xl font-bold mb-4 font-headline">Education</h2>
             <div className="w-20 h-1 bg-primary mx-auto rounded-full neon-glow"></div>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Education Card */}
-            <motion.div {...fadeIn} className="md:col-span-1 space-y-6">
-               <h3 className="text-xl font-bold flex items-center gap-2"><BookOpen className="text-primary" /> Education</h3>
-               <div className="space-y-4">
-                  {["Aptech Diploma", "PIAIC AI Agentic Course", "ICS"].map((edu) => (
-                    <div key={edu} className="p-4 neumorphic-inset rounded-xl border-l-4 border-primary">
-                      <p className="font-semibold">{edu}</p>
-                    </div>
-                  ))}
-               </div>
-            </motion.div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <EducationCard 
+              title="Diploma in Web Development"
+              institution="Aptech"
+              status="In Progress"
+            />
+            <EducationCard 
+              title="Agentic (Artificial Intelligence) Course"
+              institution="PIAIC"
+              status="Enrolled (6-quarter program; 2 quarters completed, currently in 2nd quarter)"
+            />
+            <EducationCard 
+              title="Intermediate (ICS)"
+              institution="Completed First year"
+              status="Computer Science"
+            />
+            <EducationCard 
+              title="Matriculation"
+              institution="Alkamran Public School"
+              status="2022 - 2023"
+            />
+            <EducationCard 
+              title="Hifz-ul-Quran"
+              institution="Completed"
+              status="2021"
+              icon={<Award className="text-secondary" />}
+            />
+          </div>
+        </section>
 
-            {/* Projects Grid */}
-            <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
-              {PlaceHolderImages.slice(0, 2).map((project, idx) => (
-                <ProjectCard key={idx} project={project} />
-              ))}
-            </div>
+        {/* Projects Grid */}
+        <section id="projects" className="space-y-12">
+          <motion.div {...fadeIn} className="text-center">
+            <h2 className="text-3xl font-bold mb-4 font-headline">Featured Projects</h2>
+            <div className="w-20 h-1 bg-primary mx-auto rounded-full neon-glow"></div>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {PlaceHolderImages.map((project, idx) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
           </div>
         </section>
 
@@ -226,8 +262,8 @@ export default function PortfolioPage() {
 
             <div className="flex justify-center gap-6 pt-8">
               <a href="#" className="p-3 glassmorphism rounded-full hover:neon-glow transition-all text-primary"><Github /></a>
-              <a href="#" className="p-3 glassmorphism rounded-full hover:neon-glow transition-all text-primary"><Linkedin /></a>
-              <a href="#" className="p-3 glassmorphism rounded-full hover:neon-glow transition-all text-primary"><Mail /></a>
+              <a href="https://www.linkedin.com/in/rajeel-siddiqui/" className="p-3 glassmorphism rounded-full hover:neon-glow transition-all text-primary"><Linkedin /></a>
+              <a href="mailto:rajeelsiddiqui3@gmail.com" className="p-3 glassmorphism rounded-full hover:neon-glow transition-all text-primary"><Mail /></a>
             </div>
 
             <p className="text-xs text-muted-foreground mt-12 opacity-50 uppercase tracking-widest">
@@ -261,22 +297,44 @@ function SkillCard({ title, skills, icon, className = "" }: { title: string; ski
   );
 }
 
-function TimelineItem({ title, role, period, description, align }: { title: string; role: string; period: string; description: string; align: "left" | "right" }) {
+function TimelineItem({ title, period, role, bullets }: { title: string; period: string; role: string; bullets: string[] }) {
   return (
     <motion.div 
       {...fadeIn}
-      className={`relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group`}
+      className="p-6 neumorphic-flat rounded-2xl border border-primary/5 space-y-4"
     >
-      <div className="flex items-center justify-center w-10 h-10 rounded-full border border-primary bg-background shadow-primary/20 shadow-lg shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 neon-glow">
-        <Briefcase size={16} className="text-primary" />
-      </div>
-      <div className="w-[calc(100%-4rem)] md:w-[45%] p-6 neumorphic-flat rounded-2xl border border-primary/5 ml-6 md:ml-0">
-        <div className="flex justify-between items-start mb-2">
-          <h4 className="font-bold text-lg">{title}</h4>
-          <span className="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded-md">{period}</span>
+      <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-2">
+        <div>
+          <h3 className="text-xl font-bold text-primary">{title}</h3>
+          <p className="text-sm font-semibold text-secondary">{role}</p>
         </div>
-        <p className="text-sm font-semibold text-secondary mb-2">{role}</p>
-        <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
+        <Badge variant="outline" className="w-fit">{period}</Badge>
+      </div>
+      <ul className="space-y-2">
+        {bullets.map((bullet, idx) => (
+          <li key={idx} className="flex gap-3 text-muted-foreground text-sm">
+            <ChevronRight className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+            <span>{bullet}</span>
+          </li>
+        ))}
+      </ul>
+    </motion.div>
+  );
+}
+
+function EducationCard({ title, institution, status, icon }: { title: string; institution: string; status: string; icon?: React.ReactNode }) {
+  return (
+    <motion.div 
+      {...fadeIn}
+      className="p-6 neumorphic-inset rounded-2xl border-l-4 border-primary"
+    >
+      <div className="flex gap-4 items-start">
+        {icon || <BookOpen className="text-primary mt-1 shrink-0" />}
+        <div>
+          <h4 className="font-bold text-lg">{title}</h4>
+          <p className="text-sm text-primary font-medium">{institution}</p>
+          <p className="text-xs text-muted-foreground mt-1">{status}</p>
+        </div>
       </div>
     </motion.div>
   );
@@ -288,7 +346,7 @@ function ProjectCard({ project }: { project: any }) {
       whileHover={{ y: -5 }}
       className="neumorphic-flat rounded-2xl overflow-hidden group border border-primary/5"
     >
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-64 overflow-hidden">
         <Image 
           src={project.imageUrl} 
           alt={project.description} 
@@ -302,10 +360,10 @@ function ProjectCard({ project }: { project: any }) {
         </div>
       </div>
       <div className="p-6">
-        <h4 className="font-bold mb-2">{project.description}</h4>
+        <h4 className="font-bold mb-3 text-lg">{project.description}</h4>
         <div className="flex gap-2">
-          <Badge variant="outline" className="text-[10px] uppercase tracking-tighter">React</Badge>
-          <Badge variant="outline" className="text-[10px] uppercase tracking-tighter">Next.js</Badge>
+          <Badge variant="outline" className="text-[10px] uppercase tracking-tighter">TypeScript</Badge>
+          <Badge variant="outline" className="text-[10px] uppercase tracking-tighter">Full Stack</Badge>
         </div>
       </div>
     </motion.div>
