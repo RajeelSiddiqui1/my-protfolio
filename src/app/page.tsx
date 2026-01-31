@@ -117,7 +117,12 @@ export default function PortfolioPage() {
           >
             {theme === 'light' ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
           </Button>
-          <Button variant="outline" size="sm" className="neumorphic-flat border-none text-xs hover:neon-glow">
+          <Button 
+            variant="outline" 
+            size="sm" 
+            className="neumorphic-flat border-none text-xs hover:neon-glow"
+            onClick={() => setIsChatOpen(true)}
+          >
             Let's Chat
           </Button>
         </div>
@@ -155,12 +160,16 @@ export default function PortfolioPage() {
           </motion.div>
 
           <motion.div {...fadeIn} transition={{ delay: 0.2 }} className="flex gap-4 flex-wrap justify-center">
-            <Button className="h-12 px-8 neumorphic-flat border-none hover:neon-glow transition-all">
-              <Download className="mr-2 h-4 w-4" /> Download CV
-            </Button>
-            <Button variant="outline" className="h-12 px-8 glassmorphism border-primary/20 hover:bg-primary/10">
-              <Github className="mr-2 h-4 w-4" /> GitHub
-            </Button>
+            <a href="/cv.pdf" download="Muhammad_Rajeel_Siddiqui_CV.pdf">
+              <Button className="h-12 px-8 neumorphic-flat border-none hover:neon-glow transition-all">
+                <Download className="mr-2 h-4 w-4" /> Download CV
+              </Button>
+            </a>
+            <a href="https://github.com/rajeelsiddiqui" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" className="h-12 px-8 glassmorphism border-primary/20 hover:bg-primary/10">
+                <Github className="mr-2 h-4 w-4" /> GitHub
+              </Button>
+            </a>
           </motion.div>
         </section>
 
@@ -372,8 +381,8 @@ export default function PortfolioPage() {
             </div>
 
             <div className="flex justify-center gap-6 pt-8">
-              <a href="#" className="p-3 glassmorphism rounded-full hover:neon-glow transition-all text-primary"><Github /></a>
-              <a href="https://www.linkedin.com/in/rajeel-siddiqui/" className="p-3 glassmorphism rounded-full hover:neon-glow transition-all text-primary"><Linkedin /></a>
+              <a href="https://github.com/rajeelsiddiqui" target="_blank" rel="noopener noreferrer" className="p-3 glassmorphism rounded-full hover:neon-glow transition-all text-primary"><Github /></a>
+              <a href="https://www.linkedin.com/in/rajeel-siddiqui/" target="_blank" rel="noopener noreferrer" className="p-3 glassmorphism rounded-full hover:neon-glow transition-all text-primary"><Linkedin /></a>
               <a href="mailto:rajeelsiddiqui3@gmail.com" className="p-3 glassmorphism rounded-full hover:neon-glow transition-all text-primary"><Mail /></a>
             </div>
 
@@ -571,8 +580,10 @@ function ProjectCard({ project }: { project: any }) {
           data-ai-hint={project.imageHint}
         />
         <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+          <a href="https://github.com/rajeelsiddiqui" target="_blank" rel="noopener noreferrer">
+            <Button size="icon" variant="secondary" className="rounded-full hover:neon-glow"><Github size={18} /></Button>
+          </a>
           <Button size="icon" variant="secondary" className="rounded-full hover:neon-glow"><ExternalLink size={18} /></Button>
-          <Button size="icon" variant="secondary" className="rounded-full hover:neon-glow"><Github size={18} /></Button>
         </div>
       </div>
       <div className="p-6">
