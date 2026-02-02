@@ -1,4 +1,4 @@
-
+"use client"
 import data from './placeholder-images.json';
 
 export type ImagePlaceholder = {
