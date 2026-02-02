@@ -263,7 +263,7 @@ export default function PortfolioPage() {
             animate={{ opacity: 1 }}
             className="flex flex-col sm:flex-row gap-5 justify-center w-full max-w-sm mx-auto"
           >
-            <a href="rajeel.pdf" download className="w-full">
+            <a href="/rajeel.pdf" download className="w-full">
               <Button size="lg" className="w-full h-12 text-[11px] font-black uppercase tracking-widest rounded-xl shadow-xl hover:neon-glow transition-all">
                 <Download className="mr-2 h-4 w-4" /> Download CV
               </Button>
@@ -480,7 +480,7 @@ export default function PortfolioPage() {
         <footer id="contact" className="pt-24 pb-16 text-center glassmorphism rounded-[3rem] border border-white/10 relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
           <motion.div {...fadeInUp} className="space-y-10 max-w-2xl mx-auto px-6">
-            <h2 className="text-4xl md:text-5xl font-black font-headline tracking-tighter">Let's <span className="text-primary italic">Connect</span></h2>
+            <h2 className="text-4xl md:text-5xl font-black font-headline tracking-tighter">Let&apos;s <span className="text-primary italic">Connect</span></h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
               <ContactLink icon={<Mail size={20} />} label="Email" href="mailto:rajeelsiddiqui3@gmail.com" />
               <ContactLink icon={<Linkedin size={20} />} label="LinkedIn" href="https://www.linkedin.com/in/rajeel-siddiqui-60532529b/" />
@@ -522,7 +522,7 @@ export default function PortfolioPage() {
 
               <div ref={scrollRef} className="flex-1 overflow-y-auto p-5 space-y-5 text-xs">
                 {messages.length === 0 && (
-                  <div className="text-center py-10 opacity-40 italic">Ask me about Rajeel's projects, skills, or contact info!</div>
+                  <div className="text-center py-10 opacity-40 italic">Ask me about Rajeel&apos;s projects, skills, or contact info!</div>
                 )}
                 {messages.map((msg, i) => (
                   <motion.div 
@@ -636,7 +636,7 @@ function EducationCard({ title, institution, status, desc, icon }: { title: stri
       <div>
         <h4 className="text-sm font-black uppercase tracking-wider leading-tight group-hover:text-primary transition-colors">{title}</h4>
         <p className="text-xs text-primary font-bold mt-1">{institution}</p>
-        {desc && <p className="text-[11px] text-muted-foreground mt-3 leisure-relaxed opacity-70">{desc}</p>}
+        {desc && <p className="text-[11px] text-muted-foreground mt-3 leading-relaxed opacity-70">{desc}</p>}
       </div>
     </motion.div>
   );
@@ -654,7 +654,7 @@ function TimelineItem({ title, period, role, bullets }: { title: string, period:
       </div>
       <ul className="space-y-3">
         {bullets.map((b, i) => (
-          <li key={i} className="flex gap-4 text-muted-foreground text-xs leisure-relaxed opacity-80 group-hover:opacity-100 transition-opacity">
+          <li key={i} className="flex gap-4 text-muted-foreground text-xs leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity">
             <ChevronRight className="h-4 w-4 text-primary shrink-0 mt-0.5" />
             <span>{b}</span>
           </li>
