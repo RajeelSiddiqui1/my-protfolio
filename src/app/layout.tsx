@@ -4,7 +4,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Muhammad Rajeel Siddiqui | Portfolio',
-  description: 'Full-Stack Developer Specializing in React, Next.js, and Django',
+  description: 'Full-Stack Developer Specializing in React, Next.js,Laravel and Django',
 };
 
 export default function RootLayout({

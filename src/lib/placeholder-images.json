@@ -12,7 +12,7 @@
       "description": "Office based CRM product to manage teams and workflows in a single system.",
       "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770059547/selqlb76pys0a5zlcoin.png",
       "imageHint": "Office Product",
-      "githubLink": "https://github.com/RajeelSiddiqui1/crm",
+     
       "liveLink": "http://mhcirclesolutions.com/",
       "technologies": [
         "JavaScript",
@@ -167,6 +167,20 @@
         "Qdrant"
       ],
       "category": "AI"
+    },
+    {
+      "id": "project-13",
+      "title": "Laravel CRM (Company Product)",
+      "description": "This is also crm product of company",
+      "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770064545/jzke3tp2rbvwq8ikoljl.png",
+      "imageHint": "TechwCompany Product",
+      "githubLink":"https://github.com/RajeelSiddiqui1/laravel-crm",
+      "technologies": [
+        "Php",
+        "Laravel",
+        "My Sql"
+      ],
+      "category": "Full Stack"
     }
   ]
 }

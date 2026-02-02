@@ -178,7 +178,7 @@ export default function PortfolioPage() {
           animate={{ opacity: 1, x: 0 }}
           className="text-xl font-black tracking-tighter text-primary neon-text-glow cursor-pointer"
         >
-          RAJEEL<span className="text-foreground">.</span>
+          RAJEEL<span className="text-foreground"> Sddiqui</span>
         </motion.div>
         
         <div className="hidden md:flex gap-8 text-[10px] font-black tracking-[0.2em] uppercase">
@@ -204,14 +204,7 @@ export default function PortfolioPage() {
           >
             {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
           </Button>
-          <Button 
-            variant="default" 
-            size="sm" 
-            className="hidden md:flex h-9 rounded-xl text-[10px] font-black uppercase tracking-widest px-6"
-            onClick={() => setIsChatOpen(true)}
-          >
-            Connect AI
-          </Button>
+         
           <Button variant="ghost" size="icon" className="md:hidden h-9 w-9" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
             <Menu className="h-5 w-5" />
           </Button>
@@ -275,7 +268,7 @@ export default function PortfolioPage() {
               Muhammad <span className="text-primary italic">Rajeel</span>
             </h1>
             <p className="text-lg md:text-2xl text-muted-foreground font-medium max-w-2xl mx-auto opacity-80 leading-relaxed">
-              Full-Stack Architect & <span className="text-foreground font-bold underline decoration-primary/50 decoration-2 underline-offset-4">Agentic AI Explorer</span>.
+              Full-Stack Developer  
             </p>
           </motion.div>
 
@@ -290,7 +283,7 @@ export default function PortfolioPage() {
               </Button>
             </a>
             <a href="https://github.com/RajeelSiddiqui1/" target="_blank" rel="noopener noreferrer" className="w-full">
-              <Button variant="outline" size="lg" className="w-full h-12 text-[11px] font-black uppercase tracking-widest rounded-xl glassmorphism border-primary/20 transition-all hover:bg-primary/5">
+              <Button variant="outline" size="lg" className="w-full h-12 text-[11px] font-black uppercase tracking-widest  rounded-xl glassmorphism border-primary/20 transition-all hover:text-white">
                 <Github className="mr-2 h-4 w-4" /> GitHub Profile
               </Button>
             </a>
@@ -303,7 +296,7 @@ export default function PortfolioPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div {...fadeInUp} className="space-y-8">
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Specializing in <span className="text-primary font-bold">React, Next.js, and Django</span>. 
+                Specializing in <span className="text-primary font-bold">React, Next.js,Laravel and Django</span>. 
                 I focus on building intelligent systems that prioritize user experience and technical excellence.
               </p>
               <div className="grid gap-4">
@@ -376,7 +369,7 @@ export default function PortfolioPage() {
               borderColor="border-orange-500/30" 
             />
             <SkillCard 
-              title="Specialized AI" 
+              title=" AI" 
               skills={["Genkit", "Gemini", "LLMs", "Autonomous Agents"]} 
               icon={<Cpu size={24} className="text-red-400" />} 
               borderColor="border-red-500/30" 
@@ -389,7 +382,7 @@ export default function PortfolioPage() {
           <SectionHeader title="Work Experience" />
           <div className="space-y-6">
             <TimelineItem 
-              title="MHN Enterprises" 
+              title="MN Enterprises" 
               period="Jan 2025 - Present" 
               role="Full Stack Developer" 
               bullets={[
@@ -432,13 +425,13 @@ export default function PortfolioPage() {
             <EducationCard 
               title="Diploma in Web Development"
               institution="Aptech"
-              status="In Progress"
+              status="4Th of 6th Semeter"
               icon={<GraduationCap className="text-primary" size={24} />}
             />
             <EducationCard 
               title="Agentic AI Course"
               institution="PIAIC"
-              status="Quarter 2 of 6"
+              status="Quarter 4 of 6"
               desc="Comprehensive program on Agentic Artificial Intelligence and LLMs."
               icon={<Zap className="text-purple-500" size={24} />}
             />
@@ -510,7 +503,7 @@ export default function PortfolioPage() {
             </div>
             <div className="flex flex-col gap-2 opacity-60">
                <p className="text-[11px] font-bold">03300644215 / 03718004041</p>
-               <p className="text-[10px] font-black text-muted-foreground tracking-[0.3em] uppercase">© 2025 Muhammad Rajeel Siddiqui • Engineered with Passion</p>
+               <p className="text-[10px] font-black text-muted-foreground tracking-[0.3em] uppercase">© 2026 Muhammad Rajeel Siddiqui • Engineered with Passion</p>
             </div>
           </motion.div>
         </footer>

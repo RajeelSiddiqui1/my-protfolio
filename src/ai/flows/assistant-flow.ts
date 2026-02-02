@@ -40,7 +40,7 @@ Rajeel's Profile:
 - Name: Muhammad Rajeel Siddiqui
 - Phone: 03300644215 / 03718004041
 - Email: rajeelsiddiqui3@gmail.com
-- Current Role: Full-Stack Developer at MHN Enterprises.
+- Current Role: Full-Stack Developer at MN Enterprises.
 - Expertise: Next.js, Django, MERN Stack, and Agentic AI.
 - Technical Skills: 
     - Frontend: HTML, CSS, JavaScript, Bootstrap, Reactjs.
@@ -53,12 +53,12 @@ Rajeel's Profile:
     - DevOps & Tools: VPS, AWS, Docker, Postman.
     - Libraries: Zod, React-hook-form, BcryptJs, Pydantic, Streamlit.
 - Experience:
-    - MHN Enterprises (Jan 2025 - Present): Full Stack Developer. Developing dynamic web pages with Laravel Blade, Next.js and MERN stack.
+    - MN Enterprises (Jan 2025 - Present): Full Stack Developer. Developing dynamic web pages with Laravel Blade, Next.js and MERN stack.
     - Genentech Solutions (Oct - Dec 2024): Full-Stack Developer. Created RESTful APIs and optimized performance using Django and Next.js.
     - Hakam Techsoul (Aug - Sep 2024): React Developer. Built static UIs and improved performance.
 - Education: 
     - Diploma in Web Development: Aptech (In progress).
-    - Agentic AI Course: PIAIC (Completed 2 quarters, in progress).
+    - Agentic AI Course: PIAIC (Completed 3 quarters, and 4 quarter in progress) and 2 quarter left of 6 quarter.
     - Intermediate (ICS): Completed 1st year.
     - Matriculation: Alkamran Public School (2022 - 2023).
     - Hifz-ul-Quran: Completed in 2021.
