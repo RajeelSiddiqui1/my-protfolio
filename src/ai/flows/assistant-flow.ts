@@ -1,6 +1,8 @@
+
 'use server';
 /**
  * @fileOverview AI Assistant flow for Muhammad Rajeel Siddiqui's professional portfolio.
+ * Provides deep context about Rajeel's projects, technical skills, education, and contact details.
  */
 
 import { ai } from '@/ai/genkit';

@@ -111,11 +111,32 @@ export default function PortfolioPage() {
         message: userMsg, 
         history: messages.slice(-5) 
       });
-      setMessages(prev => [...prev, { role: 'model', content: response.reply }]);
-    } catch (error) {
-      setMessages(prev => [...prev, { role: 'model', content: "Sorry, I'm having trouble connecting right now. Feel free to contact Rajeel directly!" }]);
-    } finally {
+      
+      const fullReply = response.reply;
       setIsLoading(false);
+
+      // Simulated "Real" Streaming Effect
+      setMessages(prev => [...prev, { role: 'model', content: "" }]);
+      
+      let currentText = "";
+      const words = fullReply.split(" ");
+      
+      for (let i = 0; i < words.length; i++) {
+        // Wait for a realistic typing delay
+        await new Promise(resolve => setTimeout(resolve, 30 + Math.random() * 50));
+        currentText += (i === 0 ? "" : " ") + words[i];
+        
+        setMessages(prev => {
+          const updated = [...prev];
+          if (updated.length > 0) {
+            updated[updated.length - 1] = { role: 'model', content: currentText };
+          }
+          return updated;
+        });
+      }
+    } catch (error) {
+      setIsLoading(false);
+      setMessages(prev => [...prev, { role: 'model', content: "Sorry, I'm having trouble connecting right now. Feel free to contact Rajeel directly!" }]);
     }
   };
 
@@ -535,7 +556,7 @@ export default function PortfolioPage() {
                       "max-w-[85%] p-3 rounded-2xl shadow-sm", 
                       msg.role === 'user' 
                         ? "bg-primary text-primary-foreground rounded-tr-none" 
-                        : "bg-muted text-foreground border border-white/5 rounded-tl-none"
+                        : "bg-muted text-foreground border border-white/5 rounded-tl-none whitespace-pre-wrap"
                     )}>
                       {msg.content}
                     </div>
