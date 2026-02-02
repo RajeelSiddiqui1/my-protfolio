@@ -8,45 +8,165 @@
   "placeholderImages": [
     {
       "id": "project-1",
-      "description": "Full-Stack E-commerce Platform",
-      "imageUrl": "https://images.unsplash.com/photo-1688561807403-ba262590f86f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxlY29tbWVyY2UlMjBzdG9yZXxlbnwwfHx8fDE3Njk4NTgyMDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "ecommerce store",
-      "category": "Fullstack"
+      "title": "Full-Stack CRM",
+      "description": "Office based CRM product to manage teams and workflows in a single system.",
+      "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770059547/selqlb76pys0a5zlcoin.png",
+      "imageHint": "Office Product",
+      "githubLink": "https://github.com/RajeelSiddiqui1/crm",
+      "liveLink": "http://mhcirclesolutions.com/",
+      "technologies": [
+        "JavaScript",
+        "Next.js",
+        "Shadcn UI",
+        "Dnd Kit"
+      ],
+      "category": "Full Stack"
     },
     {
       "id": "project-2",
-      "description": "Next.js Admin Dashboard",
-      "imageUrl": "https://images.unsplash.com/photo-1634804519576-d7047c5b39d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkYXNoYm9hcmQlMjBpbnRlcmZhY2V8ZW58MHx8fHwxNzY5ODY1MTUyfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "dashboard interface",
-      "category": "Frontend"
+      "title": "Full-Stack MRS Docker",
+      "description": "Media storage system where users can organize images, videos and files into folders.",
+      "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770061201/qnpgqn24a1ptdijqcuxx.png",
+      "imageHint": "Personal Project",
+      "githubLink": "https://github.com/RajeelSiddiqui1/mrs-docker",
+      "liveLink": "https://mrs-docker.vercel.app/",
+      "technologies": [
+        "JavaScript",
+        "Next.js",
+        "MongoDB"
+      ],
+      "category": "Full Stack"
     },
     {
       "id": "project-3",
-      "description": "Django REST API for CMS",
-      "imageUrl": "https://images.unsplash.com/photo-1643116774075-acc00caa9a7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzZXJ2ZXIlMjBjb2RlfGVufDB8fHx8MTc2OTg1MjU2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "server code",
-      "category": "Backend"
+      "title": "Frontend AI Chatbot",
+      "description": "Personal AI chatbot with two modes: normal chat and streaming chat.",
+      "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770059547/t65ahysg80qdojtjke7w.png",
+      "imageHint": "Personal Project",
+      "githubLink": "https://github.com/RajeelSiddiqui1/ai-reel-app",
+      "liveLink": "https://stream-chat-bot.vercel.app/",
+      "technologies": [
+        "JavaScript",
+        "Next.js"
+      ],
+      "category": "Frontend"
     },
     {
       "id": "project-4",
-      "description": "Agentic AI Customer Support",
-      "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlfGVufDB8fHx8MTc2OTg1MjU2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "ai assistant",
-      "category": "AI"
+      "title": "Full-Stack Reel App",
+      "description": "User authentication based application where users can upload and manage images and videos.",
+      "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770060580/sx9vcy80asbhu2sypxbk.png",
+      "imageHint": "Personal Project",
+      "githubLink": "https://github.com/RajeelSiddiqui1/ai-reel-app",
+      "liveLink": "https://ai-reel-app.vercel.app/",
+      "technologies": [
+        "JavaScript",
+        "Next.js",
+        "MongoDB"
+      ],
+      "category": "Full Stack"
     },
     {
       "id": "project-5",
-      "description": "Inventory Mobile App",
-      "imageUrl": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtb2JpbGUlMjBhcHB8ZW58MHx8fHwxNzY5ODUyNTY3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "mobile app",
-      "category": "Mobile App"
+      "title": "Full-Stack Blog Project",
+      "description": "Blog platform where users can create and manage posts.",
+      "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770059531/qfkddytam68d4weuncj4.png",
+      "imageHint": "Personal Project",
+      "githubLink": "https://github.com/RajeelSiddiqui1/ramdan-project",
+      "technologies": [
+        "JavaScript",
+        "SQLite"
+      ],
+      "category": "Full Stack"
     },
     {
       "id": "project-6",
-      "description": "Laravel Enterprise ERP",
-      "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3ZWIlMjBkZXZlbG9wbWVudHxlbnwwfHx8fDE3Njk4NTI1Njd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "enterprise software",
-      "category": "Backend"
+      "title": "Full-Stack Tweet Project",
+      "description": "Personal social app where users authenticate and publish tweets.",
+      "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770059531/qfkddytam68d4weuncj4.png",
+      "imageHint": "Personal Project",
+      "githubLink": "https://github.com/RajeelSiddiqui1/tweet-project",
+      "technologies": [
+        "JavaScript",
+        "MongoDB"
+      ],
+      "category": "Full Stack"
+    },
+    {
+      "id": "project-8",
+      "title": "E-commerce Frontend Project",
+      "description": "Personal frontend ecommerce website built for a semester project.",
+      "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770059531/l6m8wtmmgcmctjjx6otr.png",
+      "imageHint": "Semester Project",
+      "liveLink": "https://bagbagra.netlify.app",
+      "technologies": [
+        "HTML",
+        "CSS",
+        "JSON",
+        "JavaScript"
+      ],
+      "category": "Frontend"
+    },
+    {
+      "id": "project-9",
+      "title": "Book Sales Shop App",
+      "description": "Semester end project for selling and managing books using Flutter and Firebase.",
+      "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770059531/a7i63sbstj6lqfdznxws.png",
+      "imageHint": "Semester Project",
+      "githubLink": "https://github.com/RajeelSiddiqui1/e-project-flutter",
+      "liveLink": "https://task-6851a.web.app/",
+      "technologies": [
+        "Dart",
+        "Flutter",
+        "Firebase"
+      ],
+      "category": "Full Stack"
+    },
+    {
+      "id": "project-10",
+      "title": "AI Based Project (Techwaze)",
+      "description": "Techwaze competition project where I developed the backend and AI integration.",
+      "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770059546/pjsymrv7pfmyyjrnzas4.png",
+      "imageHint": "Techwaze Project",
+      "liveLink": "https://talktotext-pro-frontend.vercel.app/",
+      "technologies": [
+        "Python",
+        "Flask",
+        "Gemini API",
+        "MongoDB"
+      ],
+      "category": "AI"
+    },
+    {
+      "id": "project-11",
+      "title": "First Flight Booking UI",
+      "description": "Personal frontend flight booking interface project.",
+      "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770059532/qhcmlv3pyyveoixrt03c.png",
+      "imageHint": "Personal Project",
+      "liveLink": "https://firstflight.netlify.app",
+      "technologies": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "JSON"
+      ],
+      "category": "Frontend"
+    },
+    {
+      "id": "project-12",
+      "title": "WanderSync (Techwaze Project)",
+      "description": "AI based travel assistant developed as a solo Techwaze project.",
+      "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770061672/rgath2sqdiwb1ce5umgk.png",
+      "imageHint": "Techwaze Project",
+      "githubLink": "https://github.com/RajeelSiddiqui1/wanderSync",
+      "technologies": [
+        "Python",
+        "Flask",
+        "Gemini API",
+        "MongoDB",
+        "Qdrant"
+      ],
+      "category": "AI"
     }
   ]
 }

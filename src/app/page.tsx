@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
@@ -37,7 +38,7 @@ import { useState, useEffect, useRef, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { ProfileImage, PlaceHolderImages } from "@/lib/placeholder-images";
+import { ProfileImage, PlaceHolderImages, ImagePlaceholder } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 import { askAssistant } from "@/ai/flows/assistant-flow";
 
@@ -57,7 +58,7 @@ const staggerContainer = {
   }
 };
 
-const categories = ["All", "Frontend", "Backend", "Fullstack", "AI", "Mobile App"];
+const categories = ["All", "Frontend", "Full Stack", "AI", "Mobile App"];
 
 export default function PortfolioPage() {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
@@ -119,7 +120,7 @@ export default function PortfolioPage() {
 
   const filteredProjects = useMemo(() => {
     if (activeCategory === "All") return PlaceHolderImages;
-    return PlaceHolderImages.filter(p => (p as any).category === activeCategory);
+    return PlaceHolderImages.filter(p => p.category === activeCategory);
   }, [activeCategory]);
 
   return (
@@ -658,7 +659,7 @@ function TimelineItem({ title, period, role, bullets }: { title: string, period:
   );
 }
 
-function ProjectCard({ project }: { project: any }) {
+function ProjectCard({ project }: { project: ImagePlaceholder }) {
   return (
     <motion.div 
       layout
@@ -671,8 +672,20 @@ function ProjectCard({ project }: { project: any }) {
       <div className="relative h-56 overflow-hidden">
         <Image src={project.imageUrl} alt={project.description} fill className="object-cover transition-transform duration-700 group-hover:scale-110" data-ai-hint={project.imageHint} />
         <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-5 backdrop-blur-md">
-          <Button size="icon" variant="secondary" className="h-12 w-12 rounded-full shadow-lg hover:scale-110 transition-transform"><Github size={20} /></Button>
-          <Button size="icon" variant="secondary" className="h-12 w-12 rounded-full shadow-lg hover:scale-110 transition-transform"><ExternalLink size={20} /></Button>
+          {project.githubLink && (
+            <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
+              <Button size="icon" variant="secondary" className="h-12 w-12 rounded-full shadow-lg hover:scale-110 transition-transform">
+                <Github size={20} />
+              </Button>
+            </a>
+          )}
+          {project.liveLink && (
+            <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
+              <Button size="icon" variant="secondary" className="h-12 w-12 rounded-full shadow-lg hover:scale-110 transition-transform">
+                <ExternalLink size={20} />
+              </Button>
+            </a>
+          )}
         </div>
         <div className="absolute top-4 left-4">
           <Badge className="text-[8px] font-black uppercase tracking-widest bg-primary/90 text-primary-foreground backdrop-blur-md border-none px-3 py-1">
@@ -681,12 +694,14 @@ function ProjectCard({ project }: { project: any }) {
         </div>
       </div>
       <div className="p-8">
-        <h4 className="text-sm font-black uppercase tracking-widest leading-relaxed group-hover:text-primary transition-colors">{project.description}</h4>
-        <div className="mt-4 flex gap-2">
-          {project.category === "Fullstack" && <Badge variant="outline" className="text-[8px] uppercase tracking-widest opacity-40">MERN Stack</Badge>}
-          {project.category === "AI" && <Badge variant="outline" className="text-[8px] uppercase tracking-widest opacity-40">Genkit</Badge>}
-          {project.category === "Mobile App" && <Badge variant="outline" className="text-[8px] uppercase tracking-widest opacity-40">React Native</Badge>}
-          <Badge variant="outline" className="text-[8px] uppercase tracking-widest opacity-40">TypeScript</Badge>
+        <h4 className="text-sm font-black uppercase tracking-widest leading-relaxed group-hover:text-primary transition-colors">{project.title}</h4>
+        <p className="text-[11px] text-muted-foreground mt-2 line-clamp-2 opacity-70">{project.description}</p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {project.technologies?.map((tech) => (
+            <Badge key={tech} variant="outline" className="text-[8px] uppercase tracking-widest opacity-40">
+              {tech}
+            </Badge>
+          ))}
         </div>
       </div>
     </motion.div>
