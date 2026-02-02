@@ -29,10 +29,11 @@ import {
   Terminal,
   Server,
   Cloud,
-  Wrench
+  Wrench,
+  Smartphone
 } from "lucide-react";
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
@@ -56,6 +57,8 @@ const staggerContainer = {
   }
 };
 
+const categories = ["All", "Frontend", "Backend", "Fullstack", "AI", "Mobile App"];
+
 export default function PortfolioPage() {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -63,6 +66,7 @@ export default function PortfolioPage() {
   const [messages, setMessages] = useState<{ role: 'user' | 'model', content: string }[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState("All");
   const scrollRef = useRef<HTMLDivElement>(null);
   
   const { scrollYProgress } = useScroll();
@@ -112,6 +116,11 @@ export default function PortfolioPage() {
       setIsLoading(false);
     }
   };
+
+  const filteredProjects = useMemo(() => {
+    if (activeCategory === "All") return PlaceHolderImages;
+    return PlaceHolderImages.filter(p => (p as any).category === activeCategory);
+  }, [activeCategory]);
 
   return (
     <div className="min-h-screen bg-background text-foreground font-body transition-colors duration-500 relative bg-mesh overflow-x-hidden">
@@ -433,16 +442,35 @@ export default function PortfolioPage() {
 
         {/* Projects Grid */}
         <section id="projects" className="space-y-12">
-          <SectionHeader title="Projects" />
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <SectionHeader title="Projects" />
+            <div className="flex flex-wrap gap-2">
+              {categories.map((cat) => (
+                <Button 
+                  key={cat}
+                  variant={activeCategory === cat ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setActiveCategory(cat)}
+                  className={cn(
+                    "text-[10px] font-black uppercase tracking-widest rounded-full px-4 h-8 transition-all",
+                    activeCategory === cat ? "shadow-lg neon-glow" : "opacity-60 hover:opacity-100"
+                  )}
+                >
+                  {cat}
+                </Button>
+              ))}
+            </div>
+          </div>
+
           <motion.div 
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="whileInView"
+            layout
             className="grid grid-cols-1 md:grid-cols-2 gap-8"
           >
-            {PlaceHolderImages.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
+            <AnimatePresence mode="popLayout">
+              {filteredProjects.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
+            </AnimatePresence>
           </motion.div>
         </section>
 
@@ -632,19 +660,33 @@ function TimelineItem({ title, period, role, bullets }: { title: string, period:
 
 function ProjectCard({ project }: { project: any }) {
   return (
-    <motion.div variants={fadeInUp} className="neumorphic-flat rounded-[2rem] overflow-hidden group border border-white/5 hover:shadow-2xl transition-all bg-card/20">
+    <motion.div 
+      layout
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.9 }}
+      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+      className="neumorphic-flat rounded-[2rem] overflow-hidden group border border-white/5 hover:shadow-2xl transition-all bg-card/20"
+    >
       <div className="relative h-56 overflow-hidden">
         <Image src={project.imageUrl} alt={project.description} fill className="object-cover transition-transform duration-700 group-hover:scale-110" data-ai-hint={project.imageHint} />
         <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-5 backdrop-blur-md">
           <Button size="icon" variant="secondary" className="h-12 w-12 rounded-full shadow-lg hover:scale-110 transition-transform"><Github size={20} /></Button>
           <Button size="icon" variant="secondary" className="h-12 w-12 rounded-full shadow-lg hover:scale-110 transition-transform"><ExternalLink size={20} /></Button>
         </div>
+        <div className="absolute top-4 left-4">
+          <Badge className="text-[8px] font-black uppercase tracking-widest bg-primary/90 text-primary-foreground backdrop-blur-md border-none px-3 py-1">
+            {project.category}
+          </Badge>
+        </div>
       </div>
       <div className="p-8">
         <h4 className="text-sm font-black uppercase tracking-widest leading-relaxed group-hover:text-primary transition-colors">{project.description}</h4>
         <div className="mt-4 flex gap-2">
-          <Badge variant="outline" className="text-[8px] uppercase tracking-widest opacity-40">MERN Stack</Badge>
-          <Badge variant="outline" className="text-[8px] uppercase tracking-widest opacity-40">Next.js</Badge>
+          {project.category === "Fullstack" && <Badge variant="outline" className="text-[8px] uppercase tracking-widest opacity-40">MERN Stack</Badge>}
+          {project.category === "AI" && <Badge variant="outline" className="text-[8px] uppercase tracking-widest opacity-40">Genkit</Badge>}
+          {project.category === "Mobile App" && <Badge variant="outline" className="text-[8px] uppercase tracking-widest opacity-40">React Native</Badge>}
+          <Badge variant="outline" className="text-[8px] uppercase tracking-widest opacity-40">TypeScript</Badge>
         </div>
       </div>
     </motion.div>
