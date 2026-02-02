@@ -649,7 +649,7 @@ function TimelineItem({ title, period, role, bullets }: { title: string, period:
       </div>
       <ul className="space-y-3">
         {bullets.map((b, i) => (
-          <li key={i} className="flex gap-4 text-muted-foreground text-xs leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity">
+          <li key={i} className="flex gap-4 text-muted-foreground text-xs leisure-relaxed opacity-80 group-hover:opacity-100 transition-opacity">
             <ChevronRight className="h-4 w-4 text-primary shrink-0 mt-0.5" />
             <span>{b}</span>
           </li>
