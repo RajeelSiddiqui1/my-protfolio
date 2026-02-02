@@ -3,9 +3,83 @@ import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Muhammad Rajeel Siddiqui | Portfolio',
-  description: 'Full-Stack Developer Specializing in React, Next.js,Laravel and Django',
+  metadataBase: new URL("https://rajeel-dev.info"),
+
+  title: {
+    default: "Muhammad Rajeel Siddiqui – Full Stack & AI Developer in Pakistan",
+    template: "%s | Muhammad Rajeel Siddiqui",
+  },
+
+  description:
+    "Muhammad Rajeel Siddiqui is a Full Stack and AI Developer from Pakistan specializing in Next.js, React, Node.js, Django, Laravel and modern AI systems. View portfolio, real projects and professional experience.",
+
+  keywords: [
+    "Muhammad Rajeel Siddiqui",
+    "Rajeel Siddiqui",
+    "Best Full Stack Developer in Pakistan",
+    "AI Developer Pakistan",
+    "Next.js Developer Pakistan",
+    "React Developer Pakistan",
+    "Frontend Developer Pakistan",
+    "Web Developer Portfolio",
+    "GenAI Developer",
+    "Agentic AI Developer",
+    "Genkit Developer",
+    "Gemini AI",
+  ],
+
+  authors: [
+    {
+      name: "Muhammad Rajeel Siddiqui",
+      url: "https://rajeel-dev.info",
+    },
+  ],
+
+  creator: "Muhammad Rajeel Siddiqui",
+
+  openGraph: {
+    title: "Muhammad Rajeel Siddiqui – Full Stack & AI Developer",
+    description:
+      "Full Stack & AI developer from Pakistan working with Next.js, React, Node, Django, Laravel and modern AI tools. Explore projects, skills and contact details.",
+    url: "https://rajeel-dev.info",
+    siteName: "Rajeel Siddiqui – Developer Portfolio",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Muhammad Rajeel Siddiqui – Full Stack & AI Developer",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Muhammad Rajeel Siddiqui – Full Stack & AI Developer",
+    description:
+      "Full Stack & AI developer from Pakistan specializing in Next.js, React, Node, Django and Laravel.",
+    images: ["/og-image.png"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+
+  alternates: {
+    canonical: "https://rajeel-dev.info/",
+  },
 };
+
 
 export default function RootLayout({
   children,
