@@ -1,7 +1,6 @@
-
 'use server';
 /**
- * @fileOverview AI Assistant flow for Muhammad Rajeel Siddiqui's portfolio.
+ * @fileOverview AI Assistant flow for Muhammad Rajeel Siddiqui's professional portfolio.
  */
 
 import { ai } from '@/ai/genkit';
@@ -23,9 +22,14 @@ const AssistantOutputSchema = z.object({
 export type AssistantInput = z.infer<typeof AssistantInputSchema>;
 export type AssistantOutput = z.infer<typeof AssistantOutputSchema>;
 
+// Internal schema for the prompt which includes the injected project data
+const AssistantPromptInputSchema = AssistantInputSchema.extend({
+  projects: z.array(z.any()).optional(),
+});
+
 const assistantPrompt = ai.definePrompt({
   name: 'assistantPrompt',
-  input: { schema: AssistantInputSchema },
+  input: { schema: AssistantPromptInputSchema },
   output: { schema: AssistantOutputSchema },
   prompt: `You are the AI Assistant for Muhammad Rajeel Siddiqui's professional portfolio. 
 Your goal is to answer questions about Rajeel accurately and professionally, highlighting his strengths, educational background, and specific project work.
@@ -69,7 +73,7 @@ Projects Rajeel has built:
 Guidelines:
 - Be friendly, concise, and professional.
 - When asked about projects, give specific details from the list provided.
-- Mention his contact numbers if the user asks how to call or reach him.
+- Mention his contact numbers (03300644215 / 03718004041) if the user asks how to call or reach him.
 - If asked about something not in his profile, politely state you don't have that specific information but highlight his adaptability.
 - Encourage users to contact him via the links or phone numbers provided.
 
