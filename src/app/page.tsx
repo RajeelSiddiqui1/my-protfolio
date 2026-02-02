@@ -31,7 +31,8 @@ import {
   Server,
   Cloud,
   Wrench,
-  Smartphone
+  Smartphone,
+  Phone
 } from "lucide-react";
 import Image from "next/image";
 import { useState, useEffect, useRef, useMemo } from "react";
@@ -262,12 +263,12 @@ export default function PortfolioPage() {
             animate={{ opacity: 1 }}
             className="flex flex-col sm:flex-row gap-5 justify-center w-full max-w-sm mx-auto"
           >
-            <a href="/cv.pdf" download className="w-full">
+            <a href="rajeel.pdf" download className="w-full">
               <Button size="lg" className="w-full h-12 text-[11px] font-black uppercase tracking-widest rounded-xl shadow-xl hover:neon-glow transition-all">
                 <Download className="mr-2 h-4 w-4" /> Download CV
               </Button>
             </a>
-            <a href="https://github.com/rajeelsiddiqui" target="_blank" rel="noopener noreferrer" className="w-full">
+            <a href="https://github.com/RajeelSiddiqui1/" target="_blank" rel="noopener noreferrer" className="w-full">
               <Button variant="outline" size="lg" className="w-full h-12 text-[11px] font-black uppercase tracking-widest rounded-xl glassmorphism border-primary/20 transition-all hover:bg-primary/5">
                 <Github className="mr-2 h-4 w-4" /> GitHub Profile
               </Button>
@@ -480,12 +481,16 @@ export default function PortfolioPage() {
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
           <motion.div {...fadeInUp} className="space-y-10 max-w-2xl mx-auto px-6">
             <h2 className="text-4xl md:text-5xl font-black font-headline tracking-tighter">Let's <span className="text-primary italic">Connect</span></h2>
-            <div className="grid grid-cols-3 gap-4 md:gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
               <ContactLink icon={<Mail size={20} />} label="Email" href="mailto:rajeelsiddiqui3@gmail.com" />
-              <ContactLink icon={<Linkedin size={20} />} label="LinkedIn" href="https://www.linkedin.com/in/rajeel-siddiqui/" />
-              <ContactLink icon={<Github size={20} />} label="GitHub" href="https://github.com/rajeelsiddiqui" />
+              <ContactLink icon={<Linkedin size={20} />} label="LinkedIn" href="https://www.linkedin.com/in/rajeel-siddiqui-60532529b/" />
+              <ContactLink icon={<Github size={20} />} label="GitHub" href="https://github.com/RajeelSiddiqui1/" />
+              <ContactLink icon={<Phone size={20} />} label="Call" href="tel:03300644215" />
             </div>
-            <p className="text-[10px] font-black text-muted-foreground tracking-[0.3em] uppercase opacity-40">© 2025 Muhammad Rajeel Siddiqui • Engineered with Passion</p>
+            <div className="flex flex-col gap-2 opacity-60">
+               <p className="text-[11px] font-bold">03300644215 / 03718004041</p>
+               <p className="text-[10px] font-black text-muted-foreground tracking-[0.3em] uppercase">© 2025 Muhammad Rajeel Siddiqui • Engineered with Passion</p>
+            </div>
           </motion.div>
         </footer>
       </main>
@@ -517,7 +522,7 @@ export default function PortfolioPage() {
 
               <div ref={scrollRef} className="flex-1 overflow-y-auto p-5 space-y-5 text-xs">
                 {messages.length === 0 && (
-                  <div className="text-center py-10 opacity-40 italic">Ask me about Rajeel's projects, skills, or experience!</div>
+                  <div className="text-center py-10 opacity-40 italic">Ask me about Rajeel's projects, skills, or contact info!</div>
                 )}
                 {messages.map((msg, i) => (
                   <motion.div 

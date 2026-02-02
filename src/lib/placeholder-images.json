@@ -2,7 +2,7 @@
   "profileImage": {
     "id": "profile-pic",
     "description": "Muhammad Rajeel Siddiqui Profile Picture",
-    "imageUrl": "https://picsum.photos/seed/rajeel-profile/400/400",
+    "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770062940/yierkdx4whylfirfkfsl.png",
     "imageHint": "professional portrait"
   },
   "placeholderImages": [
