@@ -265,11 +265,17 @@ export default function PortfolioPage() {
             className="space-y-6"
           >
             <h1 className="text-5xl md:text-7xl font-black tracking-tight font-headline leading-[1.1]">
-              Muhammad <span className="text-primary italic">Rajeel</span>
-            </h1>
-            <p className="text-lg md:text-2xl text-muted-foreground font-medium max-w-2xl mx-auto opacity-80 leading-relaxed">
+  Muhammad <span className="text-primary italic">Rajeel</span> Siddiqui – Full Stack & AI Developer in Pakistan
+</h1>
+<p className="sr-only">
+  Muhammad Rajeel Siddiqui is a Full Stack and AI Developer from Pakistan.
+  He works with Next.js, React, Node.js, Django, Laravel, MongoDB and
+  Agentic AI systems including Genkit and Gemini.
+</p>
+
+            {/* <p className="text-lg md:text-2xl text-muted-foreground font-medium max-w-2xl mx-auto opacity-80 leading-relaxed">
               Full-Stack Developer  
-            </p>
+            </p> */}
           </motion.div>
 
           <motion.div 
