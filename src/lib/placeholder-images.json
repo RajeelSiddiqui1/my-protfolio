@@ -1,34 +1,52 @@
 {
   "profileImage": {
-    "id": "profile-pic",
-    "description": "Muhammad Rajeel Siddiqui Profile Picture",
-    "imageUrl": "https://picsum.photos/seed/rajeel-profile/400/400",
-    "imageHint": "professional portrait"
-  },
+  "id": "profile-pic",
+  "description": "Muhammad Rajeel Siddiqui Profile Picture",
+  "imageUrl": "/rajeel.png",
+  "imageHint": "professional portrait"
+},
   "placeholderImages": [
     {
       "id": "project-1",
-      "description": "Full-Stack E-commerce Platform with MERN",
+      "description": "Full-Stack E-commerce Platform",
       "imageUrl": "https://images.unsplash.com/photo-1688561807403-ba262590f86f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxlY29tbWVyY2UlMjBzdG9yZXxlbnwwfHx8fDE3Njk4NTgyMDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "ecommerce store"
+      "imageHint": "ecommerce store",
+      "category": "Fullstack"
     },
     {
       "id": "project-2",
-      "description": "Next.js Admin Dashboard with Real-time Analytics",
+      "description": "Next.js Admin Dashboard",
       "imageUrl": "https://images.unsplash.com/photo-1634804519576-d7047c5b39d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkYXNoYm9hcmQlMjBpbnRlcmZhY2V8ZW58MHx8fHwxNzY5ODY1MTUyfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "dashboard interface"
+      "imageHint": "dashboard interface",
+      "category": "Frontend"
     },
     {
       "id": "project-3",
-      "description": "Django REST API for Content Management",
+      "description": "Django REST API for CMS",
       "imageUrl": "https://images.unsplash.com/photo-1643116774075-acc00caa9a7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzZXJ2ZXIlMjBjb2RlfGVufDB8fHx8MTc2OTg1MjU2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "server code"
+      "imageHint": "server code",
+      "category": "Backend"
     },
     {
       "id": "project-4",
-      "description": "Laravel Blade Inventory Management System",
+      "description": "Agentic AI Customer Support",
+      "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlfGVufDB8fHx8MTc2OTg1MjU2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ai assistant",
+      "category": "AI"
+    },
+    {
+      "id": "project-5",
+      "description": "Inventory Mobile App",
+      "imageUrl": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtb2JpbGUlMjBhcHB8ZW58MHx8fHwxNzY5ODUyNTY3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mobile app",
+      "category": "Mobile App"
+    },
+    {
+      "id": "project-6",
+      "description": "Laravel Enterprise ERP",
       "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3ZWIlMjBkZXZlbG9wbWVudHxlbnwwfHx8fDE3Njk4NTI1Njd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "inventory system"
+      "imageHint": "enterprise software",
+      "category": "Backend"
     }
   ]
 }
