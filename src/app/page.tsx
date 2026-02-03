@@ -265,7 +265,7 @@ export default function PortfolioPage() {
             className="space-y-6"
           >
             <h1 className="text-5xl md:text-7xl font-black tracking-tight font-headline leading-[1.1]">
-  Muhammad <span className="text-primary italic">Rajeel</span> Siddiqui – Full Stack & AI Developer in Pakistan
+  Muhammad <span className="text-primary italic">Rajeel</span> Siddiqui – Full Stack Developee
 </h1>
 <p className="sr-only">
   Muhammad Rajeel Siddiqui is a Full Stack and AI Developer from Pakistan.
