@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
@@ -30,14 +31,15 @@ import {
   Server,
   Cloud,
   Wrench,
-  Smartphone
+  Smartphone,
+  Phone
 } from "lucide-react";
 import Image from "next/image";
 import { useState, useEffect, useRef, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { ProfileImage, PlaceHolderImages } from "@/lib/placeholder-images";
+import { ProfileImage, PlaceHolderImages, ImagePlaceholder } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 import { askAssistant } from "@/ai/flows/assistant-flow";
 
@@ -57,7 +59,7 @@ const staggerContainer = {
   }
 };
 
-const categories = ["All", "Frontend", "Backend", "Fullstack", "AI", "Mobile App"];
+const categories = ["All", "Frontend", "Full Stack", "AI", "Mobile App"];
 
 export default function PortfolioPage() {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
@@ -109,17 +111,38 @@ export default function PortfolioPage() {
         message: userMsg, 
         history: messages.slice(-5) 
       });
-      setMessages(prev => [...prev, { role: 'model', content: response.reply }]);
-    } catch (error) {
-      setMessages(prev => [...prev, { role: 'model', content: "Sorry, I'm having trouble connecting right now. Feel free to contact Rajeel directly!" }]);
-    } finally {
+      
+      const fullReply = response.reply;
       setIsLoading(false);
+
+      // Simulated "Real" Streaming Effect
+      setMessages(prev => [...prev, { role: 'model', content: "" }]);
+      
+      let currentText = "";
+      const words = fullReply.split(" ");
+      
+      for (let i = 0; i < words.length; i++) {
+        // Wait for a realistic typing delay
+        await new Promise(resolve => setTimeout(resolve, 30 + Math.random() * 50));
+        currentText += (i === 0 ? "" : " ") + words[i];
+        
+        setMessages(prev => {
+          const updated = [...prev];
+          if (updated.length > 0) {
+            updated[updated.length - 1] = { role: 'model', content: currentText };
+          }
+          return updated;
+        });
+      }
+    } catch (error) {
+      setIsLoading(false);
+      setMessages(prev => [...prev, { role: 'model', content: "Sorry, I'm having trouble connecting right now. Feel free to contact Rajeel directly!" }]);
     }
   };
 
   const filteredProjects = useMemo(() => {
     if (activeCategory === "All") return PlaceHolderImages;
-    return PlaceHolderImages.filter(p => (p as any).category === activeCategory);
+    return PlaceHolderImages.filter(p => p.category === activeCategory);
   }, [activeCategory]);
 
   return (
@@ -155,7 +178,7 @@ export default function PortfolioPage() {
           animate={{ opacity: 1, x: 0 }}
           className="text-xl font-black tracking-tighter text-primary neon-text-glow cursor-pointer"
         >
-          RAJEEL<span className="text-foreground">.</span>
+          RAJEEL<span className="text-foreground"> Sddiqui</span>
         </motion.div>
         
         <div className="hidden md:flex gap-8 text-[10px] font-black tracking-[0.2em] uppercase">
@@ -181,14 +204,7 @@ export default function PortfolioPage() {
           >
             {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
           </Button>
-          <Button 
-            variant="default" 
-            size="sm" 
-            className="hidden md:flex h-9 rounded-xl text-[10px] font-black uppercase tracking-widest px-6"
-            onClick={() => setIsChatOpen(true)}
-          >
-            Connect AI
-          </Button>
+         
           <Button variant="ghost" size="icon" className="md:hidden h-9 w-9" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
             <Menu className="h-5 w-5" />
           </Button>
@@ -249,11 +265,17 @@ export default function PortfolioPage() {
             className="space-y-6"
           >
             <h1 className="text-5xl md:text-7xl font-black tracking-tight font-headline leading-[1.1]">
-              Muhammad <span className="text-primary italic">Rajeel</span>
-            </h1>
-            <p className="text-lg md:text-2xl text-muted-foreground font-medium max-w-2xl mx-auto opacity-80 leading-relaxed">
-              Full-Stack Architect & <span className="text-foreground font-bold underline decoration-primary/50 decoration-2 underline-offset-4">Agentic AI Explorer</span>.
-            </p>
+  Muhammad <span className="text-primary italic">Rajeel</span> Siddiqui – Full Stack & AI Developer in Pakistan
+</h1>
+<p className="sr-only">
+  Muhammad Rajeel Siddiqui is a Full Stack and AI Developer from Pakistan.
+  He works with Next.js, React, Node.js, Django, Laravel, MongoDB and
+  Agentic AI systems including Genkit and Gemini.
+</p>
+
+            {/* <p className="text-lg md:text-2xl text-muted-foreground font-medium max-w-2xl mx-auto opacity-80 leading-relaxed">
+              Full-Stack Developer  
+            </p> */}
           </motion.div>
 
           <motion.div 
@@ -261,13 +283,13 @@ export default function PortfolioPage() {
             animate={{ opacity: 1 }}
             className="flex flex-col sm:flex-row gap-5 justify-center w-full max-w-sm mx-auto"
           >
-            <a href="/cv.pdf" download className="w-full">
+            <a href="/rajeel.pdf" download className="w-full">
               <Button size="lg" className="w-full h-12 text-[11px] font-black uppercase tracking-widest rounded-xl shadow-xl hover:neon-glow transition-all">
                 <Download className="mr-2 h-4 w-4" /> Download CV
               </Button>
             </a>
-            <a href="https://github.com/rajeelsiddiqui" target="_blank" rel="noopener noreferrer" className="w-full">
-              <Button variant="outline" size="lg" className="w-full h-12 text-[11px] font-black uppercase tracking-widest rounded-xl glassmorphism border-primary/20 transition-all hover:bg-primary/5">
+            <a href="https://github.com/RajeelSiddiqui1/" target="_blank" rel="noopener noreferrer" className="w-full">
+              <Button variant="outline" size="lg" className="w-full h-12 text-[11px] font-black uppercase tracking-widest  rounded-xl glassmorphism border-primary/20 transition-all hover:text-white">
                 <Github className="mr-2 h-4 w-4" /> GitHub Profile
               </Button>
             </a>
@@ -280,7 +302,7 @@ export default function PortfolioPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div {...fadeInUp} className="space-y-8">
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Specializing in <span className="text-primary font-bold">React, Next.js, and Laravel</span>. 
+                Specializing in <span className="text-primary font-bold">React, Next.js,Laravel and Django</span>. 
                 I focus on building intelligent systems that prioritize user experience and technical excellence.
               </p>
               <div className="grid gap-4">
@@ -353,7 +375,7 @@ export default function PortfolioPage() {
               borderColor="border-orange-500/30" 
             />
             <SkillCard 
-              title="Specialized AI" 
+              title=" AI" 
               skills={["Genkit", "Gemini", "LLMs", "Autonomous Agents"]} 
               icon={<Cpu size={24} className="text-red-400" />} 
               borderColor="border-red-500/30" 
@@ -366,7 +388,7 @@ export default function PortfolioPage() {
           <SectionHeader title="Work Experience" />
           <div className="space-y-6">
             <TimelineItem 
-              title="MHN Enterprises" 
+              title="MN Enterprises" 
               period="Jan 2025 - Present" 
               role="Full Stack Developer" 
               bullets={[
@@ -409,13 +431,13 @@ export default function PortfolioPage() {
             <EducationCard 
               title="Diploma in Web Development"
               institution="Aptech"
-              status="In Progress"
+              status="4Th of 6th Semeter"
               icon={<GraduationCap className="text-primary" size={24} />}
             />
             <EducationCard 
               title="Agentic AI Course"
               institution="PIAIC"
-              status="Quarter 2 of 6"
+              status="Quarter 4 of 6"
               desc="Comprehensive program on Agentic Artificial Intelligence and LLMs."
               icon={<Zap className="text-purple-500" size={24} />}
             />
@@ -478,13 +500,17 @@ export default function PortfolioPage() {
         <footer id="contact" className="pt-24 pb-16 text-center glassmorphism rounded-[3rem] border border-white/10 relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
           <motion.div {...fadeInUp} className="space-y-10 max-w-2xl mx-auto px-6">
-            <h2 className="text-4xl md:text-5xl font-black font-headline tracking-tighter">Let's <span className="text-primary italic">Connect</span></h2>
-            <div className="grid grid-cols-3 gap-4 md:gap-8">
+            <h2 className="text-4xl md:text-5xl font-black font-headline tracking-tighter">Let&apos;s <span className="text-primary italic">Connect</span></h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
               <ContactLink icon={<Mail size={20} />} label="Email" href="mailto:rajeelsiddiqui3@gmail.com" />
-              <ContactLink icon={<Linkedin size={20} />} label="LinkedIn" href="https://www.linkedin.com/in/rajeel-siddiqui/" />
-              <ContactLink icon={<Github size={20} />} label="GitHub" href="https://github.com/rajeelsiddiqui" />
+              <ContactLink icon={<Linkedin size={20} />} label="LinkedIn" href="https://www.linkedin.com/in/rajeel-siddiqui-60532529b/" />
+              <ContactLink icon={<Github size={20} />} label="GitHub" href="https://github.com/RajeelSiddiqui1/" />
+              <ContactLink icon={<Phone size={20} />} label="Call" href="tel:03300644215" />
             </div>
-            <p className="text-[10px] font-black text-muted-foreground tracking-[0.3em] uppercase opacity-40">© 2025 Muhammad Rajeel Siddiqui • Engineered with Passion</p>
+            <div className="flex flex-col gap-2 opacity-60">
+               <p className="text-[11px] font-bold">03300644215 / 03718004041</p>
+               <p className="text-[10px] font-black text-muted-foreground tracking-[0.3em] uppercase">© 2026 Muhammad Rajeel Siddiqui • Engineered with Passion</p>
+            </div>
           </motion.div>
         </footer>
       </main>
@@ -516,7 +542,7 @@ export default function PortfolioPage() {
 
               <div ref={scrollRef} className="flex-1 overflow-y-auto p-5 space-y-5 text-xs">
                 {messages.length === 0 && (
-                  <div className="text-center py-10 opacity-40 italic">Ask me about Rajeel's projects, skills, or experience!</div>
+                  <div className="text-center py-10 opacity-40 italic">Ask me about Rajeel&apos;s projects, skills, or contact info!</div>
                 )}
                 {messages.map((msg, i) => (
                   <motion.div 
@@ -529,7 +555,7 @@ export default function PortfolioPage() {
                       "max-w-[85%] p-3 rounded-2xl shadow-sm", 
                       msg.role === 'user' 
                         ? "bg-primary text-primary-foreground rounded-tr-none" 
-                        : "bg-muted text-foreground border border-white/5 rounded-tl-none"
+                        : "bg-muted text-foreground border border-white/5 rounded-tl-none whitespace-pre-wrap"
                     )}>
                       {msg.content}
                     </div>
@@ -630,7 +656,7 @@ function EducationCard({ title, institution, status, desc, icon }: { title: stri
       <div>
         <h4 className="text-sm font-black uppercase tracking-wider leading-tight group-hover:text-primary transition-colors">{title}</h4>
         <p className="text-xs text-primary font-bold mt-1">{institution}</p>
-        {desc && <p className="text-[11px] text-muted-foreground mt-3 leisure-relaxed opacity-70">{desc}</p>}
+        {desc && <p className="text-[11px] text-muted-foreground mt-3 leading-relaxed opacity-70">{desc}</p>}
       </div>
     </motion.div>
   );
@@ -658,7 +684,7 @@ function TimelineItem({ title, period, role, bullets }: { title: string, period:
   );
 }
 
-function ProjectCard({ project }: { project: any }) {
+function ProjectCard({ project }: { project: ImagePlaceholder }) {
   return (
     <motion.div 
       layout
@@ -671,8 +697,20 @@ function ProjectCard({ project }: { project: any }) {
       <div className="relative h-56 overflow-hidden">
         <Image src={project.imageUrl} alt={project.description} fill className="object-cover transition-transform duration-700 group-hover:scale-110" data-ai-hint={project.imageHint} />
         <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-5 backdrop-blur-md">
-          <Button size="icon" variant="secondary" className="h-12 w-12 rounded-full shadow-lg hover:scale-110 transition-transform"><Github size={20} /></Button>
-          <Button size="icon" variant="secondary" className="h-12 w-12 rounded-full shadow-lg hover:scale-110 transition-transform"><ExternalLink size={20} /></Button>
+          {project.githubLink && (
+            <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
+              <Button size="icon" variant="secondary" className="h-12 w-12 rounded-full shadow-lg hover:scale-110 transition-transform">
+                <Github size={20} />
+              </Button>
+            </a>
+          )}
+          {project.liveLink && (
+            <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
+              <Button size="icon" variant="secondary" className="h-12 w-12 rounded-full shadow-lg hover:scale-110 transition-transform">
+                <ExternalLink size={20} />
+              </Button>
+            </a>
+          )}
         </div>
         <div className="absolute top-4 left-4">
           <Badge className="text-[8px] font-black uppercase tracking-widest bg-primary/90 text-primary-foreground backdrop-blur-md border-none px-3 py-1">
@@ -681,12 +719,14 @@ function ProjectCard({ project }: { project: any }) {
         </div>
       </div>
       <div className="p-8">
-        <h4 className="text-sm font-black uppercase tracking-widest leading-relaxed group-hover:text-primary transition-colors">{project.description}</h4>
-        <div className="mt-4 flex gap-2">
-          {project.category === "Fullstack" && <Badge variant="outline" className="text-[8px] uppercase tracking-widest opacity-40">MERN Stack</Badge>}
-          {project.category === "AI" && <Badge variant="outline" className="text-[8px] uppercase tracking-widest opacity-40">Genkit</Badge>}
-          {project.category === "Mobile App" && <Badge variant="outline" className="text-[8px] uppercase tracking-widest opacity-40">React Native</Badge>}
-          <Badge variant="outline" className="text-[8px] uppercase tracking-widest opacity-40">TypeScript</Badge>
+        <h4 className="text-sm font-black uppercase tracking-widest leading-relaxed group-hover:text-primary transition-colors">{project.title}</h4>
+        <p className="text-[11px] text-muted-foreground mt-2 line-clamp-2 opacity-70">{project.description}</p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {project.technologies?.map((tech) => (
+            <Badge key={tech} variant="outline" className="text-[8px] uppercase tracking-widest opacity-40">
+              {tech}
+            </Badge>
+          ))}
         </div>
       </div>
     </motion.div>
