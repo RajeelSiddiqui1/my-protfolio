@@ -358,7 +358,7 @@ export default function PortfolioPage() {
             />
             <SkillCard 
               title="DevOps & Cloud" 
-              skills={["VPS", "AWS", "Docker", "Git", "GitHub", "Postman"]} 
+              skills={["VPS", "AWS", "Docker","K8s","Jenkins","ECR + ECS","Github Actions", "Git", "GitHub", "Postman"]} 
               icon={<Cloud size={24} className="text-blue-400" />} 
               borderColor="border-blue-500/30" 
             />

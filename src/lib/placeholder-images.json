@@ -8,179 +8,154 @@
   "placeholderImages": [
     {
       "id": "project-1",
+      "title": "AMMAX Properties",
+      "description": "Real estate platform for property listings and sales. Built with MERN stack, featuring automated deployment on AWS via Kubernetes (k8s), Jenkins, and ArgoCD.",
+      "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1780505882/ah1t7me8oytxtsmtpat4.png",
+      "imageHint": "AMMAX Real Estate Platform",
+      "category": "Full Stack",
+      "technologies": ["MongoDB", "Express.js", "React", "Node.js", "AWS", "Kubernetes", "Jenkins", "ArgoCD"]
+    },
+    {
+      "id": "project-2",
+      "title": "MH Digital Edge",
+      "description": "Digital services platform built with MERN stack. Deployed on Hostinger VPS using Docker and GitHub Actions for CI/CD.",
+      "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1779984984/yjfwhmuvyiuxet5szoj8.png",
+      "imageHint": "MH Digital Edge Service Site",
+      "category": "Full Stack",
+      "technologies": ["MongoDB", "Express.js", "React", "Node.js", "Docker", "Hostinger VPS", "GitHub Actions"]
+    },
+    {
+      "id": "project-3",
+      "title": "Vision Pro LCD",
+      "description": "Client-based project built with MERN. Backend hosted on Hostinger Node.js environment and frontend deployed on Vercel.",
+      "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1780505881/dw3lgfdm9t1dvvbgewdm.png",
+      "imageHint": "Vision Pro LCD Client Project",
+      "category": "Full Stack",
+      "technologies": ["MongoDB", "Express.js", "React", "Node.js", "Hostinger", "Vercel"]
+    },
+    {
+      "id": "project-4",
       "title": "Full-Stack CRM",
       "description": "Office based CRM product to manage teams and workflows in a single system.",
       "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770059547/selqlb76pys0a5zlcoin.png",
       "imageHint": "Office Product",
-     
       "liveLink": "http://mhcirclesolutions.com/",
-      "technologies": [
-        "JavaScript",
-        "Next.js",
-        "Shadcn UI",
-        "Dnd Kit"
-      ],
-      "category": "Full Stack"
+      "category": "Full Stack",
+      "technologies": ["JavaScript", "Next.js", "Shadcn UI", "Dnd Kit"]
     },
     {
-      "id": "project-2",
+      "id": "project-5",
+      "title": "Laravel CRM (Company Product)",
+      "description": "Enterprise-grade CRM product developed for company operations.",
+      "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770064545/jzke3tp2rbvwq8ikoljl.png",
+      "imageHint": "TechCompany Product",
+      "githubLink": "https://github.com/RajeelSiddiqui1/laravel-crm",
+      "category": "Full Stack",
+      "technologies": ["Php", "Laravel", "My Sql"]
+    },
+    {
+      "id": "project-6",
       "title": "Full-Stack MRS Docker",
       "description": "Media storage system where users can organize images, videos and files into folders.",
       "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770061201/qnpgqn24a1ptdijqcuxx.png",
       "imageHint": "Personal Project",
       "githubLink": "https://github.com/RajeelSiddiqui1/mrs-docker",
       "liveLink": "https://mrs-docker.vercel.app/",
-      "technologies": [
-        "JavaScript",
-        "Next.js",
-        "MongoDB"
-      ],
-      "category": "Full Stack"
+      "category": "Full Stack",
+      "technologies": ["JavaScript", "Next.js", "MongoDB"]
     },
     {
-      "id": "project-3",
-      "title": "Frontend AI Chatbot",
-      "description": "Personal AI chatbot with two modes: normal chat and streaming chat.",
-      "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770059547/t65ahysg80qdojtjke7w.png",
-      "imageHint": "Personal Project",
-      "githubLink": "https://github.com/RajeelSiddiqui1/ai-reel-app",
-      "liveLink": "https://stream-chat-bot.vercel.app/",
-      "technologies": [
-        "JavaScript",
-        "Next.js"
-      ],
-      "category": "Frontend"
-    },
-    {
-      "id": "project-4",
+      "id": "project-7",
       "title": "Full-Stack Reel App",
       "description": "User authentication based application where users can upload and manage images and videos.",
       "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770060580/sx9vcy80asbhu2sypxbk.png",
       "imageHint": "Personal Project",
       "githubLink": "https://github.com/RajeelSiddiqui1/ai-reel-app",
       "liveLink": "https://ai-reel-app.vercel.app/",
-      "technologies": [
-        "JavaScript",
-        "Next.js",
-        "MongoDB"
-      ],
-      "category": "Full Stack"
+      "category": "Full Stack",
+      "technologies": ["JavaScript", "Next.js", "MongoDB"]
     },
     {
-      "id": "project-5",
+      "id": "project-8",
       "title": "Full-Stack Blog Project",
       "description": "Blog platform where users can create and manage posts.",
       "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770059531/qfkddytam68d4weuncj4.png",
       "imageHint": "Personal Project",
       "githubLink": "https://github.com/RajeelSiddiqui1/ramdan-project",
-      "technologies": [
-        "JavaScript",
-        "SQLite"
-      ],
-      "category": "Full Stack"
+      "category": "Full Stack",
+      "technologies": ["JavaScript", "SQLite"]
     },
     {
-      "id": "project-6",
+      "id": "project-9",
       "title": "Full-Stack Tweet Project",
       "description": "Personal social app where users authenticate and publish tweets.",
       "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770059531/qfkddytam68d4weuncj4.png",
       "imageHint": "Personal Project",
       "githubLink": "https://github.com/RajeelSiddiqui1/tweet-project",
-      "technologies": [
-        "JavaScript",
-        "MongoDB"
-      ],
-      "category": "Full Stack"
+      "category": "Full Stack",
+      "technologies": ["JavaScript", "MongoDB"]
     },
     {
-      "id": "project-8",
-      "title": "E-commerce Frontend Project",
-      "description": "Personal frontend ecommerce website built for a semester project.",
-      "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770059531/l6m8wtmmgcmctjjx6otr.png",
-      "imageHint": "Semester Project",
-      "liveLink": "https://bagbagra.netlify.app",
-      "technologies": [
-        "HTML",
-        "CSS",
-        "JSON",
-        "JavaScript"
-      ],
-      "category": "Frontend"
+      "id": "project-10",
+      "title": "WanderSync (Techwaze)",
+      "description": "AI based travel assistant developed as a solo Techwaze project.",
+      "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770061672/rgath2sqdiwb1ce5umgk.png",
+      "imageHint": "Techwaze Project",
+      "githubLink": "https://github.com/RajeelSiddiqui1/wanderSync",
+      "category": "AI",
+      "technologies": ["Python", "Flask", "Gemini API", "MongoDB", "Qdrant"]
     },
     {
-      "id": "project-9",
+      "id": "project-11",
+      "title": "AI Chatbot (Techwaze)",
+      "description": "Techwaze competition project where I developed the backend and AI integration.",
+      "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770059546/pjsymrv7pfmyyjrnzas4.png",
+      "imageHint": "Techwaze Project",
+      "liveLink": "https://talktotext-pro-frontend.vercel.app/",
+      "category": "AI",
+      "technologies": ["Python", "Flask", "Gemini API", "MongoDB"]
+    },
+    {
+      "id": "project-12",
+      "title": "Frontend AI Chatbot",
+      "description": "Personal AI chatbot with two modes: normal chat and streaming chat.",
+      "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770059547/t65ahysg80qdojtjke7w.png",
+      "imageHint": "Personal Project",
+      "githubLink": "https://github.com/RajeelSiddiqui1/ai-reel-app",
+      "liveLink": "https://stream-chat-bot.vercel.app/",
+      "category": "Frontend",
+      "technologies": ["JavaScript", "Next.js"]
+    },
+    {
+      "id": "project-13",
       "title": "Book Sales Shop App",
       "description": "Semester end project for selling and managing books using Flutter and Firebase.",
       "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770059531/a7i63sbstj6lqfdznxws.png",
       "imageHint": "Semester Project",
       "githubLink": "https://github.com/RajeelSiddiqui1/e-project-flutter",
       "liveLink": "https://task-6851a.web.app/",
-      "technologies": [
-        "Dart",
-        "Flutter",
-        "Firebase"
-      ],
-      "category": "Mobile App"
+      "category": "Mobile App",
+      "technologies": ["Dart", "Flutter", "Firebase"]
     },
     {
-      "id": "project-10",
-      "title": "AI Based Project (Techwaze)",
-      "description": "Techwaze competition project where I developed the backend and AI integration.",
-      "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770059546/pjsymrv7pfmyyjrnzas4.png",
-      "imageHint": "Techwaze Project",
-      "liveLink": "https://talktotext-pro-frontend.vercel.app/",
-      "technologies": [
-        "Python",
-        "Flask",
-        "Gemini API",
-        "MongoDB"
-      ],
-      "category": "AI"
+      "id": "project-14",
+      "title": "E-commerce Frontend",
+      "description": "Personal frontend ecommerce website built for a semester project.",
+      "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770059531/l6m8wtmmgcmctjjx6otr.png",
+      "imageHint": "Semester Project",
+      "liveLink": "https://bagbagra.netlify.app",
+      "category": "Frontend",
+      "technologies": ["HTML", "CSS", "JSON", "JavaScript"]
     },
     {
-      "id": "project-11",
+      "id": "project-15",
       "title": "First Flight Booking UI",
       "description": "Personal frontend flight booking interface project.",
       "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770059532/qhcmlv3pyyveoixrt03c.png",
       "imageHint": "Personal Project",
       "liveLink": "https://firstflight.netlify.app",
-      "technologies": [
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "JSON"
-      ],
-      "category": "Frontend"
-    },
-    {
-      "id": "project-12",
-      "title": "WanderSync (Techwaze Project)",
-      "description": "AI based travel assistant developed as a solo Techwaze project.",
-      "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770061672/rgath2sqdiwb1ce5umgk.png",
-      "imageHint": "Techwaze Project",
-      "githubLink": "https://github.com/RajeelSiddiqui1/wanderSync",
-      "technologies": [
-        "Python",
-        "Flask",
-        "Gemini API",
-        "MongoDB",
-        "Qdrant"
-      ],
-      "category": "AI"
-    },
-    {
-      "id": "project-13",
-      "title": "Laravel CRM (Company Product)",
-      "description": "This is also crm product of company",
-      "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770064545/jzke3tp2rbvwq8ikoljl.png",
-      "imageHint": "TechwCompany Product",
-      "githubLink":"https://github.com/RajeelSiddiqui1/laravel-crm",
-      "technologies": [
-        "Php",
-        "Laravel",
-        "My Sql"
-      ],
-      "category": "Full Stack"
+      "category": "Frontend",
+      "technologies": ["HTML", "CSS", "JavaScript", "JSON"]
     }
   ]
 }
