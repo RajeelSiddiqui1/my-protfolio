@@ -268,7 +268,7 @@ export default function PortfolioPage() {
               Muhammad <span className="text-primary italic">Rajeel</span>
             </h1>
             <p className="text-lg md:text-2xl text-muted-foreground font-medium max-w-2xl mx-auto opacity-80 leading-relaxed">
-              Full-Stack Developer  
+              Full-Stack Architect & <span className="text-foreground font-bold underline decoration-primary/50 decoration-2 underline-offset-4">Agentic AI Explorer</span>.
             </p>
           </motion.div>
 
