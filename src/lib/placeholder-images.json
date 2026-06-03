@@ -10,7 +10,7 @@
       "id": "project-1",
       "title": "AMMAX Properties",
       "description": "Real estate platform for property listings and sales. Built with MERN stack, featuring automated deployment on AWS via Kubernetes (k8s), Jenkins, and ArgoCD.",
-      "imageUrl": "https://via.placeholder.com/150",
+      "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1780505882/ah1t7me8oytxtsmtpat4.png",
       "imageHint": "AMMAX Real Estate Platform",
       "category": "Full Stack",
       "technologies": ["MongoDB", "Express.js", "React", "Node.js", "AWS", "Kubernetes", "Jenkins", "ArgoCD"]
@@ -19,7 +19,7 @@
       "id": "project-2",
       "title": "MH Digital Edge",
       "description": "Digital services platform built with MERN stack. Deployed on Hostinger VPS using Docker and GitHub Actions for CI/CD.",
-      "imageUrl": "https://via.placeholder.com/150",
+      "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1779984984/yjfwhmuvyiuxet5szoj8.png",
       "imageHint": "MH Digital Edge Service Site",
       "category": "Full Stack",
       "technologies": ["MongoDB", "Express.js", "React", "Node.js", "Docker", "Hostinger VPS", "GitHub Actions"]
@@ -28,7 +28,7 @@
       "id": "project-3",
       "title": "Vision Pro LCD",
       "description": "Client-based project built with MERN. Backend hosted on Hostinger Node.js environment and frontend deployed on Vercel.",
-      "imageUrl": "https://via.placeholder.com/150",
+      "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1780505881/dw3lgfdm9t1dvvbgewdm.png",
       "imageHint": "Vision Pro LCD Client Project",
       "category": "Full Stack",
       "technologies": ["MongoDB", "Express.js", "React", "Node.js", "Hostinger", "Vercel"]
