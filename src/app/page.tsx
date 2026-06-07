@@ -296,7 +296,7 @@ export default function PortfolioPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div {...fadeInUp} className="space-y-8">
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Specializing in <span className="text-primary font-bold">React, Next.js,Laravel and Django</span>. 
+                Specializing in <span className="text-primary font-bold">React, Next.js,Laravel</span>. 
                 I focus on building intelligent systems that prioritize user experience and technical excellence.
               </p>
               <div className="grid gap-4">
@@ -346,13 +346,13 @@ export default function PortfolioPage() {
             />
             <SkillCard 
               title="Backend & Full Stack" 
-              skills={["Node", "Python", "Nextjs", "Django", "MERN"]} 
+              skills={["Node", "Python", "Nextjs", "MERN"]} 
               icon={<Server size={24} className="text-emerald-400" />} 
               borderColor="border-emerald-500/30" 
             />
             <SkillCard 
               title="Databases & AI" 
-              skills={["MySQL", "MySQL Lite", "MONGODB", "GENAI", "AGENTIC AI"]} 
+              skills={["MySQL", "MONGODB", "GENAI"]} 
               icon={<Database size={24} className="text-purple-400" />} 
               borderColor="border-purple-500/30" 
             />
@@ -362,18 +362,7 @@ export default function PortfolioPage() {
               icon={<Cloud size={24} className="text-blue-400" />} 
               borderColor="border-blue-500/30" 
             />
-            <SkillCard 
-              title="Libraries" 
-              skills={["Zod", "React-hooks-form", "BcryptJs", "Pydantic", "Streamlit"]} 
-              icon={<Wrench size={24} className="text-orange-400" />} 
-              borderColor="border-orange-500/30" 
-            />
-            <SkillCard 
-              title=" AI" 
-              skills={["Genkit", "Gemini", "LLMs", "Autonomous Agents"]} 
-              icon={<Cpu size={24} className="text-red-400" />} 
-              borderColor="border-red-500/30" 
-            />
+            
           </motion.div>
         </section>
 
@@ -383,7 +372,7 @@ export default function PortfolioPage() {
           <div className="space-y-6">
             <TimelineItem 
               title="MN Enterprises" 
-              period="Jan 2025 - Present" 
+              period="July 2025 - Present" 
               role="Full Stack Developer" 
               bullets={[
                 "Developing dynamic web pages with Laravel Blade, Nextjs and MERN stack.",
@@ -394,7 +383,7 @@ export default function PortfolioPage() {
             />
             <TimelineItem 
               title="Genentech Solutions" 
-              period="October - December 2024, 3 months" 
+              period="Jan - March 2024, 3 months" 
               role="Full-Stack Developer" 
               bullets={[
                 "Working as a Full-Stack Developer at Genentech Solutions",
@@ -406,7 +395,7 @@ export default function PortfolioPage() {
             />
             <TimelineItem 
               title="Hakam Techsoul" 
-              period="August - September 2024, 2 months" 
+              period="November - December 2024, 2 months" 
               role="React Developer" 
               bullets={[
                 "Worked as a React Developer at Hakam Techsoul",
@@ -427,13 +416,6 @@ export default function PortfolioPage() {
               institution="Aptech"
               status="4Th of 6th Semeter"
               icon={<GraduationCap className="text-primary" size={24} />}
-            />
-            <EducationCard 
-              title="Agentic AI Course"
-              institution="PIAIC"
-              status="Quarter 4 of 6"
-              desc="Comprehensive program on Agentic Artificial Intelligence and LLMs."
-              icon={<Zap className="text-purple-500" size={24} />}
             />
             <EducationCard 
               title="Intermediate (ICS)"
