@@ -268,7 +268,7 @@ export default function PortfolioPage() {
               Muhammad <span className="text-primary italic">Rajeel</span>
             </h1>
             <p className="text-lg md:text-2xl text-center text-muted-foreground font-medium max-w-2xl mx-auto opacity-80 leading-relaxed">
-              Full-Stack Developer</span>.
+              Full-Stack Developer
             </p>
           </motion.div>
 
