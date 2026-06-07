@@ -267,8 +267,8 @@ export default function PortfolioPage() {
             <h1 className="text-5xl md:text-7xl font-black tracking-tight font-headline leading-[1.1]">
               Muhammad <span className="text-primary italic">Rajeel</span>
             </h1>
-            <p className="text-lg md:text-2xl text-muted-foreground font-medium max-w-2xl mx-auto opacity-80 leading-relaxed">
-              Full-Stack Architect & <span className="text-foreground font-bold underline decoration-primary/50 decoration-2 underline-offset-4">Agentic AI Explorer</span>.
+            <p className="text-lg md:text-2xl text-center text-muted-foreground font-medium max-w-2xl mx-auto opacity-80 leading-relaxed">
+              Full-Stack Developer</span>.
             </p>
           </motion.div>
 
@@ -305,11 +305,7 @@ export default function PortfolioPage() {
                   title="TechWaze 3rd Position"
                   desc="Secured 3rd position in TechWaze competition at Aptech. I was responsible for the AI development for the team."
                 />
-                <FeatureItem 
-                  icon={<Zap className="text-primary h-5 w-5" />}
-                  title="Agentic AI"
-                  desc="Developing autonomous AI agents using Genkit."
-                />
+                
               </div>
             </motion.div>
             
