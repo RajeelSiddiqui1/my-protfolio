@@ -432,7 +432,7 @@ export default function PortfolioPage() {
             <EducationCard 
               title="Matriculation"
               institution="Alkamran Public School"
-              status="2022 - 2023"
+              status="2022 - 2024"
               icon={<GraduationCap className="text-muted-foreground" size={24} />}
             />
           </div>
