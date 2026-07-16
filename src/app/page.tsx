@@ -368,7 +368,7 @@ export default function PortfolioPage() {
           <div className="space-y-6">
             <TimelineItem 
               title="MN Enterprises" 
-              period="July 2025 - Present" 
+              period="Jan 2025 - Present" 
               role="Full Stack Developer" 
               bullets={[
                 "Developing dynamic web pages with Laravel Blade, Nextjs and MERN stack.",
@@ -379,7 +379,7 @@ export default function PortfolioPage() {
             />
             <TimelineItem 
               title="Genentech Solutions" 
-              period="Jan - March 2024, 3 months" 
+              period="Oct 2024 – Dec 2024, 3 months" 
               role="Full-Stack Developer" 
               bullets={[
                 "Working as a Full-Stack Developer at Genentech Solutions",
@@ -391,7 +391,7 @@ export default function PortfolioPage() {
             />
             <TimelineItem 
               title="Hakam Techsoul" 
-              period="November - December 2024, 2 months" 
+              period="Aug 2024 – Sep 2024, 2 months" 
               role="React Developer" 
               bullets={[
                 "Worked as a React Developer at Hakam Techsoul",
