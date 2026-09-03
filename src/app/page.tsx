@@ -274,8 +274,8 @@ export default function PortfolioPage() {
             <h1 className="text-5xl md:text-7xl font-black tracking-tight font-headline leading-[1.1]">
               Muhammad <span className="text-primary italic">Rajeel</span>
             </h1>
-            <p className="text-lg md:text-2xl text-muted-foreground font-medium max-w-2xl mx-auto opacity-80 leading-relaxed">
-              Full-Stack Architect & <span className="text-foreground font-bold underline decoration-primary/50 decoration-2 underline-offset-4">Agentic AI Explorer</span>.
+            <p className="text-lg md:text-2xl text-center text-muted-foreground font-medium max-w-2xl mx-auto opacity-80 leading-relaxed">
+              Full-Stack Developer
             </p>
           </motion.div>
 
@@ -303,7 +303,7 @@ export default function PortfolioPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div {...fadeInUp} className="space-y-8">
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Specializing in <span className="text-primary font-bold">React, Next.js,Laravel and Django</span>. 
+                Specializing in <span className="text-primary font-bold">React, Next.js,Laravel</span>. 
                 I focus on building intelligent systems that prioritize user experience and technical excellence.
               </p>
               <div className="grid gap-4">
@@ -312,11 +312,7 @@ export default function PortfolioPage() {
                   title="TechWaze 3rd Position"
                   desc="Secured 3rd position in TechWaze competition at Aptech. I was responsible for the AI development for the team."
                 />
-                <FeatureItem 
-                  icon={<Zap className="text-primary h-5 w-5" />}
-                  title="Agentic AI"
-                  desc="Developing autonomous AI agents using Genkit."
-                />
+                
               </div>
             </motion.div>
             
@@ -353,13 +349,13 @@ export default function PortfolioPage() {
             />
             <SkillCard 
               title="Backend & Full Stack" 
-              skills={["Node", "Python", "Nextjs", "Django", "MERN"]} 
+              skills={["Node", "Python", "Nextjs", "MERN"]} 
               icon={<Server size={24} className="text-emerald-400" />} 
               borderColor="border-emerald-500/30" 
             />
             <SkillCard 
               title="Databases & AI" 
-              skills={["MySQL", "MySQL Lite", "MONGODB", "GENAI", "AGENTIC AI"]} 
+              skills={["MySQL", "MONGODB", "GENAI"]} 
               icon={<Database size={24} className="text-purple-400" />} 
               borderColor="border-purple-500/30" 
             />
@@ -369,18 +365,7 @@ export default function PortfolioPage() {
               icon={<Cloud size={24} className="text-blue-400" />} 
               borderColor="border-blue-500/30" 
             />
-            <SkillCard 
-              title="Libraries" 
-              skills={["Zod", "React-hooks-form", "BcryptJs", "Pydantic", "Streamlit"]} 
-              icon={<Wrench size={24} className="text-orange-400" />} 
-              borderColor="border-orange-500/30" 
-            />
-            <SkillCard 
-              title=" AI" 
-              skills={["Genkit", "Gemini", "LLMs", "Autonomous Agents"]} 
-              icon={<Cpu size={24} className="text-red-400" />} 
-              borderColor="border-red-500/30" 
-            />
+            
           </motion.div>
         </section>
 
@@ -401,7 +386,7 @@ export default function PortfolioPage() {
             />
             <TimelineItem 
               title="Genentech Solutions" 
-              period="October - December 2024, 3 months" 
+              period="Oct 2024 – Dec 2024, 3 months" 
               role="Full-Stack Developer" 
               bullets={[
                 "Working as a Full-Stack Developer at Genentech Solutions",
@@ -413,7 +398,7 @@ export default function PortfolioPage() {
             />
             <TimelineItem 
               title="Hakam Techsoul" 
-              period="August - September 2024, 2 months" 
+              period="Aug 2024 – Sep 2024, 2 months" 
               role="React Developer" 
               bullets={[
                 "Worked as a React Developer at Hakam Techsoul",
@@ -436,13 +421,6 @@ export default function PortfolioPage() {
               icon={<GraduationCap className="text-primary" size={24} />}
             />
             <EducationCard 
-              title="Agentic AI Course"
-              institution="PIAIC"
-              status="Quarter 4 of 6"
-              desc="Comprehensive program on Agentic Artificial Intelligence and LLMs."
-              icon={<Zap className="text-purple-500" size={24} />}
-            />
-            <EducationCard 
               title="Intermediate (ICS)"
               institution="Completed 1st Year"
               desc="Specialized in Computer Science."
@@ -457,7 +435,7 @@ export default function PortfolioPage() {
             <EducationCard 
               title="Matriculation"
               institution="Alkamran Public School"
-              status="2022 - 2023"
+              status="2022 - 2024"
               icon={<GraduationCap className="text-muted-foreground" size={24} />}
             />
           </div>

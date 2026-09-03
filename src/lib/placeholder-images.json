@@ -7,7 +7,17 @@
   },
   "placeholderImages": [
     {
-      "id": "project-1",
+  "id": "project-1",
+  "title": "AWS S3 Cloud Storage Manager",
+  "description": "Full-featured AWS S3 cloud management dashboard to browse, upload, download, and manage S3 buckets and objects. Features client-side AWS credential isolation, multi-file & folder uploads, presigned URLs, and static website hosting configuration. Deployed on Vercel.",
+  "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1788462154/minlhsuzfhzeyheoieq0.png",
+  "imageHint": "AWS S3 Cloud Storage Dashboard",
+  "category": "Full Stack",
+  "liveLink": "https://aws-cloud.rajeel-dev.info/",
+  "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS", "AWS SDK (S3)", "Zustand", "Vercel"]
+},
+    {
+      "id": "project-2",
       "title": "AMMAX Properties",
       "description": "Real estate platform for property listings and sales. Built with MERN stack, featuring automated deployment on AWS via Kubernetes (k8s), Jenkins, and ArgoCD.",
       "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1780505882/ah1t7me8oytxtsmtpat4.png",
@@ -17,7 +27,7 @@
       "technologies": ["MongoDB", "Express.js", "React", "Node.js", "AWS", "Kubernetes", "Jenkins", "ArgoCD"]
     },
     {
-      "id": "project-2",
+      "id": "project-3",
       "title": "MH Digital Edge",
       "description": "Digital services platform built with MERN stack. Deployed on Hostinger VPS using Docker and GitHub Actions for CI/CD.",
       "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1779984984/yjfwhmuvyiuxet5szoj8.png",
@@ -27,7 +37,7 @@
       "technologies": ["MongoDB", "Express.js", "React", "Node.js", "Docker", "Hostinger VPS", "GitHub Actions"]
     },
     {
-      "id": "project-3",
+      "id": "project-4",
       "title": "Vision Pro LCD",
       "description": "Client-based project built with MERN. Backend hosted on Hostinger Node.js environment and frontend deployed on Vercel.",
       "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1780505881/dw3lgfdm9t1dvvbgewdm.png",
@@ -37,7 +47,7 @@
       "technologies": ["MongoDB", "Express.js", "React", "Node.js", "Hostinger", "Vercel"]
     },
     {
-      "id": "project-4",
+      "id": "project-5",
       "title": "Full-Stack CRM",
       "description": "Office based CRM product to manage teams and workflows in a single system.",
       "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770059547/selqlb76pys0a5zlcoin.png",
@@ -47,7 +57,7 @@
       "technologies": ["JavaScript", "Next.js", "Shadcn UI", "Dnd Kit"]
     },
     {
-      "id": "project-5",
+      "id": "project-6",
       "title": "Laravel CRM (Company Product)",
       "description": "Enterprise-grade CRM product developed for company operations.",
       "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770064545/jzke3tp2rbvwq8ikoljl.png",
@@ -57,7 +67,7 @@
       "technologies": ["Php", "Laravel", "My Sql"]
     },
     {
-      "id": "project-6",
+      "id": "project-7",
       "title": "Full-Stack MRS Docker",
       "description": "Media storage system where users can organize images, videos and files into folders.",
       "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770061201/qnpgqn24a1ptdijqcuxx.png",
@@ -68,7 +78,7 @@
       "technologies": ["JavaScript", "Next.js", "MongoDB"]
     },
     {
-      "id": "project-7",
+      "id": "project-8",
       "title": "Full-Stack Reel App",
       "description": "User authentication based application where users can upload and manage images and videos.",
       "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770060580/sx9vcy80asbhu2sypxbk.png",
@@ -79,7 +89,7 @@
       "technologies": ["JavaScript", "Next.js", "MongoDB"]
     },
     {
-      "id": "project-8",
+      "id": "project-9",
       "title": "Full-Stack Blog Project",
       "description": "Blog platform where users can create and manage posts.",
       "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770059531/qfkddytam68d4weuncj4.png",
@@ -89,7 +99,7 @@
       "technologies": ["JavaScript", "SQLite"]
     },
     {
-      "id": "project-9",
+      "id": "project-10",
       "title": "Full-Stack Tweet Project",
       "description": "Personal social app where users authenticate and publish tweets.",
       "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770059531/qfkddytam68d4weuncj4.png",
@@ -99,7 +109,7 @@
       "technologies": ["JavaScript", "MongoDB"]
     },
     {
-      "id": "project-10",
+      "id": "project-11",
       "title": "WanderSync (Techwaze)",
       "description": "AI based travel assistant developed as a solo Techwaze project.",
       "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770061672/rgath2sqdiwb1ce5umgk.png",
@@ -109,7 +119,7 @@
       "technologies": ["Python", "Flask", "Gemini API", "MongoDB", "Qdrant"]
     },
     {
-      "id": "project-11",
+      "id": "project-12",
       "title": "AI Chatbot (Techwaze)",
       "description": "Techwaze competition project where I developed the backend and AI integration.",
       "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770059546/pjsymrv7pfmyyjrnzas4.png",
@@ -119,7 +129,7 @@
       "technologies": ["Python", "Flask", "Gemini API", "MongoDB"]
     },
     {
-      "id": "project-12",
+      "id": "project-13",
       "title": "Frontend AI Chatbot",
       "description": "Personal AI chatbot with two modes: normal chat and streaming chat.",
       "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770059547/t65ahysg80qdojtjke7w.png",
@@ -130,7 +140,7 @@
       "technologies": ["JavaScript", "Next.js"]
     },
     {
-      "id": "project-13",
+      "id": "project-14",
       "title": "Book Sales Shop App",
       "description": "Semester end project for selling and managing books using Flutter and Firebase.",
       "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770059531/a7i63sbstj6lqfdznxws.png",
@@ -141,7 +151,7 @@
       "technologies": ["Dart", "Flutter", "Firebase"]
     },
     {
-      "id": "project-14",
+      "id": "project-15",
       "title": "E-commerce Frontend",
       "description": "Personal frontend ecommerce website built for a semester project.",
       "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770059531/l6m8wtmmgcmctjjx6otr.png",
@@ -151,7 +161,7 @@
       "technologies": ["HTML", "CSS", "JSON", "JavaScript"]
     },
     {
-      "id": "project-15",
+      "id": "project-16",
       "title": "First Flight Booking UI",
       "description": "Personal frontend flight booking interface project.",
       "imageUrl": "https://res.cloudinary.com/dqjjreavg/image/upload/v1770059532/qhcmlv3pyyveoixrt03c.png",
