@@ -1,97 +1,122 @@
-
 'use server';
 /**
- * @fileOverview AI Assistant flow for Muhammad Rajeel Siddiqui's professional portfolio.
- * Provides deep context about Rajeel's projects, technical skills, education, and contact details.
+ * @fileOverview AI Assistant flow powered by Groq.
+ * Clean, concise, conversational responses formatted for mobile & desktop chatbots.
  */
 
-import { ai } from '@/ai/genkit';
-import { z } from 'genkit';
+import { groq } from '@/ai/groq';
 import projectData from '@/lib/placeholder-images.json';
 
-const AssistantInputSchema = z.object({
-  message: z.string().describe('The user message or question about Rajeel.'),
-  history: z.array(z.object({
-    role: z.enum(['user', 'model']),
-    content: z.string(),
-  })).optional().describe('Chat history for context.'),
-});
+export interface ChatMessage {
+  role: 'user' | 'model';
+  content: string;
+}
 
-const AssistantOutputSchema = z.object({
-  reply: z.string().describe('The AI response to the user.'),
-});
+export interface AssistantInput {
+  message: string;
+  history?: ChatMessage[];
+}
 
-export type AssistantInput = z.infer<typeof AssistantInputSchema>;
-export type AssistantOutput = z.infer<typeof AssistantOutputSchema>;
+export interface AssistantOutput {
+  reply: string;
+}
 
-// Internal schema for the prompt which includes the injected project data
-const AssistantPromptInputSchema = AssistantInputSchema.extend({
-  projects: z.array(z.any()).optional(),
-});
+function buildSystemPrompt(): string {
+  const topProjects = projectData.placeholderImages
+    .slice(0, 8)
+    .map(
+      (p) =>
+        `- **${p.title}** (${p.category}): ${p.description}${
+          p.liveLink ? ` | [Live Demo](${p.liveLink})` : ''
+        }${p.githubLink ? ` | [GitHub](${p.githubLink})` : ''}`
+    )
+    .join('\n');
 
-const assistantPrompt = ai.definePrompt({
-  name: 'assistantPrompt',
-  input: { schema: AssistantPromptInputSchema },
-  output: { schema: AssistantOutputSchema },
-  prompt: `You are the AI Assistant for Muhammad Rajeel Siddiqui's professional portfolio. 
-Your goal is to answer questions about Rajeel accurately and professionally, highlighting his strengths, educational background, and specific project work.
+  return `You are "Rajeel AI", the friendly, intelligent assistant for Muhammad Rajeel Siddiqui's portfolio.
 
-Rajeel's Profile:
+ABOUT RAJEEL:
 - Name: Muhammad Rajeel Siddiqui
-- Phone: 03300644215 / 03718004041
-- Email: rajeelsiddiqui3@gmail.com
-- Current Role: Full-Stack Developer at MN Enterprises.
-- Expertise: Next.js, Django, MERN Stack, and Agentic AI.
-- Technical Skills: 
-    - Frontend: HTML, CSS, JavaScript, Bootstrap, Reactjs.
-    - Backend: Node.js, Python (Django).
-    - Full Stack: Next.js, Django, MERN.
-    - Databases: MySQL, MySQL Lite, MongoDB.
-    - Version Control: Git, GitHub.
-    - UI Libraries: Shadcn UI, Aceternity UI, DaisyUI.
-    - AI: GenAI, Agentic AI (Genkit).
-    - DevOps & Tools: VPS, AWS, Docker, Postman.
-    - Libraries: Zod, React-hook-form, BcryptJs, Pydantic, Streamlit.
-- Experience:
-    - MN Enterprises (Jan 2025 - Present): Full Stack Developer. Developing dynamic web pages with Laravel Blade, Next.js and MERN stack.
-    - Genentech Solutions (Oct - Dec 2024): Full-Stack Developer. Created RESTful APIs and optimized performance using Django and Next.js.
-    - Hakam Techsoul (Aug - Sep 2024): React Developer. Built static UIs and improved performance.
-- Education: 
-    - Diploma in Web Development: Aptech (In progress).
-    - Agentic AI Course: PIAIC (Completed 3 quarters, and 4 quarter in progress) and 2 quarter left of 6 quarter.
-    - Intermediate (ICS): Completed 1st year.
-    - Matriculation: Alkamran Public School (2022 - 2023).
-    - Hifz-ul-Quran: Completed in 2021.
-- Achievement: Secured 3rd position in the TechWaze competition at Aptech. Rajeel was responsible for developing the AI for his team.
+- Current Job: Full-Stack Developer at MN Enterprises (Next.js, Laravel Blade, MERN).
+- Past Experience: Genentech Solutions (Django & Next.js), Hakam Techsoul (React).
+- Core Skills: Next.js, React, Node.js, Express, Python (Django), MERN Stack, Docker, AWS, Agentic AI.
+- Education: Aptech (Web Dev Diploma), PIAIC (Agentic AI - 4 quarters), Intermediate (ICS 1st year), Hafiz-e-Quran.
+- Contact: Phone/WhatsApp: +92 330 0644215 / +92 371 8004041 | Email: rajeelsiddiqui3@gmail.com
+- Links: [LinkedIn](https://www.linkedin.com/in/rajeel-siddiqui-60532529b/) | [GitHub](https://github.com/RajeelSiddiqui1/)
 
-Projects Rajeel has built:
-{{#each projects}}
-- {{title}} ({{category}}): {{description}}
-  - Technologies: {{#each technologies}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}
-  {{#if liveLink}}- Live Link: {{liveLink}}{{/if}}
-  {{#if githubLink}}- GitHub: {{githubLink}}{{/if}}
-{{/each}}
+FEATURED PROJECTS:
+${topProjects}
 
-Guidelines:
-- Be friendly, concise, and professional.
-- When asked about projects, give specific details from the list provided.
-- Mention his contact numbers (03300644215 / 03718004041) if the user asks how to call or reach him.
-- If asked about something not in his profile, politely state you don't have that specific information but highlight his adaptability.
-- Encourage users to contact him via the links or phone numbers provided.
-
-Chat History:
-{{#each history}}
-{{role}}: {{{content}}}
-{{/each}}
-
-User: {{{message}}}`,
-});
+CRITICAL FORMATTING RULES:
+1. NEVER use markdown tables (| Column | Column |). Tables look broken on mobile chat screens.
+2. Keep responses brief, clean, and conversational (under 120 words).
+3. Use bullet points for lists.
+4. When sharing projects, highlight maximum 3-4 most relevant projects with clickable links [Project Name](url).
+5. Never cut off sentences. Always complete your thought.
+6. Match the language: If user writes in Roman Urdu or Urdu, reply warmly in Roman Urdu. If in English, reply in English.`;
+}
 
 export async function askAssistant(input: AssistantInput): Promise<AssistantOutput> {
-  const { output } = await assistantPrompt({
-    ...input,
-    projects: projectData.placeholderImages
+  const apiKey = process.env.GROQ_API_KEY;
+
+  if (!apiKey) {
+    return {
+      reply:
+        "Groq API Key is not configured yet. Please add GROQ_API_KEY in your .env file to enable instant AI responses!",
+    };
+  }
+
+  const candidateModels = [
+    'openai/gpt-oss-20b',
+    'openai/gpt-oss-120b',
+    'qwen/qwen3.6-27b',
+  ];
+
+  const systemPrompt = buildSystemPrompt();
+
+  const messages: Array<{ role: 'system' | 'user' | 'assistant'; content: string }> = [
+    { role: 'system', content: systemPrompt },
+  ];
+
+  if (input.history && input.history.length > 0) {
+    for (const msg of input.history) {
+      messages.push({
+        role: msg.role === 'user' ? 'user' : 'assistant',
+        content: msg.content,
+      });
+    }
+  }
+
+  messages.push({
+    role: 'user',
+    content: input.message,
   });
-  if (!output) throw new Error('Failed to generate response');
-  return output;
+
+  let lastError: any = null;
+
+  for (const model of candidateModels) {
+    try {
+      const response = await groq.chat.completions.create({
+        model,
+        messages,
+        temperature: 0.6,
+        max_tokens: 1200,
+      });
+
+      let reply = response.choices[0]?.message?.content || '';
+      // Remove any internal thinking tags
+      reply = reply.replace(/<think>[\s\S]*?<\/think>/gi, '').trim();
+
+      if (reply) {
+        return { reply };
+      }
+    } catch (error: any) {
+      lastError = error;
+      console.warn(`Groq model ${model} failed, trying fallback...`, error?.message);
+    }
+  }
+
+  console.error('All Groq models failed:', lastError);
+  return {
+    reply: `Sorry, there was an issue processing your request. Please reach out to Rajeel directly via WhatsApp or Call at 03300644215!`,
+  };
 }

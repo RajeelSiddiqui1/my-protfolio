@@ -32,7 +32,9 @@ import {
   Cloud,
   Wrench,
   Smartphone,
-  Phone
+  Phone,
+  RotateCcw,
+  Sparkles
 } from "lucide-react";
 import Image from "next/image";
 import { useState, useEffect, useRef, useMemo } from "react";
@@ -42,6 +44,7 @@ import { Input } from "@/components/ui/input";
 import { ProfileImage, PlaceHolderImages, ImagePlaceholder } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 import { askAssistant } from "@/ai/flows/assistant-flow";
+import ReactMarkdown from "react-markdown";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -97,33 +100,37 @@ export default function PortfolioPage() {
     setTheme(prev => prev === 'light' ? 'dark' : 'light');
   };
 
-  const handleSendMessage = async (e?: React.FormEvent) => {
-    e?.preventDefault();
-    if (!chatInput.trim() || isLoading) return;
+  const clearChat = () => {
+    setMessages([]);
+    setIsLoading(false);
+  };
 
-    const userMsg = chatInput;
+  const handleSendMessage = async (e?: React.FormEvent, customPrompt?: string) => {
+    e?.preventDefault();
+    const query = customPrompt || chatInput;
+    if (!query.trim() || isLoading) return;
+
     setChatInput("");
-    setMessages(prev => [...prev, { role: 'user', content: userMsg }]);
+    setMessages(prev => [...prev, { role: 'user', content: query }]);
     setIsLoading(true);
 
     try {
       const response = await askAssistant({ 
-        message: userMsg, 
-        history: messages.slice(-5) 
+        message: query, 
+        history: messages.slice(-6) 
       });
       
       const fullReply = response.reply;
       setIsLoading(false);
 
-      // Simulated "Real" Streaming Effect
+      // Fast, natural typewriter stream
       setMessages(prev => [...prev, { role: 'model', content: "" }]);
       
       let currentText = "";
       const words = fullReply.split(" ");
       
       for (let i = 0; i < words.length; i++) {
-        // Wait for a realistic typing delay
-        await new Promise(resolve => setTimeout(resolve, 30 + Math.random() * 50));
+        await new Promise(resolve => setTimeout(resolve, 15 + Math.random() * 20));
         currentText += (i === 0 ? "" : " ") + words[i];
         
         setMessages(prev => {
@@ -136,7 +143,7 @@ export default function PortfolioPage() {
       }
     } catch (error) {
       setIsLoading(false);
-      setMessages(prev => [...prev, { role: 'model', content: "Sorry, I'm having trouble connecting right now. Feel free to contact Rajeel directly!" }]);
+      setMessages(prev => [...prev, { role: 'model', content: "Sorry, I'm having trouble connecting right now. Feel free to contact Rajeel directly via WhatsApp or Call at 03300644215!" }]);
     }
   };
 
@@ -510,81 +517,151 @@ export default function PortfolioPage() {
       </main>
 
       {/* AI Assistant */}
-      <div className="fixed bottom-8 right-8 z-[60]">
+      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 z-[60]">
         <AnimatePresence>
           {isChatOpen && (
             <motion.div
-              initial={{ opacity: 0, y: 50, scale: 0.9, filter: "blur(10px)" }}
+              initial={{ opacity: 0, y: 30, scale: 0.95, filter: "blur(10px)" }}
               animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-              exit={{ opacity: 0, y: 50, scale: 0.9, filter: "blur(10px)" }}
-              className="mb-6 w-[90vw] md:w-[360px] h-[500px] glassmorphism rounded-3xl border border-primary/30 shadow-2xl flex flex-col overflow-hidden ring-1 ring-white/10"
+              exit={{ opacity: 0, y: 30, scale: 0.95, filter: "blur(10px)" }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="mb-4 sm:mb-5 w-[calc(100vw-2rem)] max-w-[380px] h-[520px] max-h-[calc(100vh-6.5rem)] glassmorphism rounded-3xl border border-primary/30 shadow-2xl flex flex-col overflow-hidden ring-1 ring-white/10"
             >
-              <div className="p-4 border-b border-white/10 flex justify-between items-center bg-primary/10">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground shadow-lg">
+              <div className="p-3 sm:p-3.5 border-b border-white/10 flex justify-between items-center bg-primary/10 backdrop-blur-md shrink-0">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground shadow-lg shrink-0">
                     <Cpu size={16} />
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[11px] font-black uppercase tracking-widest leading-none">Rajeel AI</span>
-                    <span className="text-[8px] opacity-60 font-medium">Always Online</span>
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[11px] font-black uppercase tracking-widest leading-none">Rajeel AI</span>
+                      <span className="text-[8px] bg-primary/20 text-primary border border-primary/30 px-1.5 py-0.5 rounded-full font-bold uppercase tracking-wider">
+                        Groq Fast
+                      </span>
+                    </div>
+                    <span className="text-[8px] opacity-60 font-medium">Lightning Fast • Always Online</span>
                   </div>
                 </div>
-                <Button variant="ghost" size="icon" onClick={() => setIsChatOpen(false)} className="h-8 w-8 rounded-full hover:bg-white/10">
-                  <X size={16} />
-                </Button>
+                <div className="flex items-center gap-1">
+                  {messages.length > 0 && (
+                    <Button 
+                      variant="ghost" 
+                      size="icon" 
+                      onClick={clearChat} 
+                      title="Clear chat"
+                      className="h-7 w-7 rounded-full hover:bg-white/10 opacity-70 hover:opacity-100"
+                    >
+                      <RotateCcw size={13} />
+                    </Button>
+                  )}
+                  <Button variant="ghost" size="icon" onClick={() => setIsChatOpen(false)} className="h-7 w-7 rounded-full hover:bg-white/10">
+                    <X size={15} />
+                  </Button>
+                </div>
               </div>
 
-              <div ref={scrollRef} className="flex-1 overflow-y-auto p-5 space-y-5 text-xs">
+              <div ref={scrollRef} className="flex-1 overflow-y-auto p-3.5 sm:p-4 space-y-3.5 text-xs">
                 {messages.length === 0 && (
-                  <div className="text-center py-10 opacity-40 italic">Ask me about Rajeel&apos;s projects, skills, or contact info!</div>
+                  <div className="flex flex-col items-center justify-center min-h-full text-center py-2 space-y-3 sm:space-y-4">
+                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+                      <Sparkles size={20} />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold">Hi there! Ask me anything about Rajeel.</p>
+                      <p className="text-[10px] text-muted-foreground mt-0.5">Powered by ultra-fast Groq AI inference</p>
+                    </div>
+
+                    <div className="w-full space-y-1.5 pt-1">
+                      <p className="text-[9px] font-bold uppercase tracking-wider text-muted-foreground text-left px-1">Suggested questions:</p>
+                      {[
+                        "What are Rajeel's top technical skills?",
+                        "Tell me about his recent projects & live links",
+                        "What is his current work experience?",
+                        "How can I contact or hire Rajeel?"
+                      ].map((prompt, idx) => (
+                        <button
+                          key={idx}
+                          type="button"
+                          onClick={() => handleSendMessage(undefined, prompt)}
+                          className="w-full text-left p-2 sm:p-2.5 rounded-xl bg-background/60 hover:bg-primary/15 border border-white/5 hover:border-primary/30 transition-all text-[11px] leading-snug flex items-center justify-between group"
+                        >
+                          <span className="group-hover:text-primary transition-colors pr-2 line-clamp-1">{prompt}</span>
+                          <ChevronRight size={12} className="opacity-40 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-primary shrink-0" />
+                        </button>
+                      ))}
+                    </div>
+                  </div>
                 )}
                 {messages.map((msg, i) => (
                   <motion.div 
-                    initial={{ opacity: 0, x: msg.role === 'user' ? 20 : -20 }}
+                    initial={{ opacity: 0, x: msg.role === 'user' ? 15 : -15 }}
                     animate={{ opacity: 1, x: 0 }}
                     key={i} 
                     className={cn("flex", msg.role === 'user' ? "justify-end" : "justify-start")}
                   >
                     <div className={cn(
-                      "max-w-[85%] p-3 rounded-2xl shadow-sm", 
+                      "max-w-[88%] sm:max-w-[85%] p-3 rounded-2xl shadow-sm leading-relaxed text-xs break-words", 
                       msg.role === 'user' 
                         ? "bg-primary text-primary-foreground rounded-tr-none" 
-                        : "bg-muted text-foreground border border-white/5 rounded-tl-none whitespace-pre-wrap"
+                        : "bg-muted/80 text-foreground border border-white/10 rounded-tl-none prose prose-invert prose-xs max-w-none"
                     )}>
-                      {msg.content}
+                      {msg.role === 'user' ? (
+                        msg.content
+                      ) : (
+                        <ReactMarkdown
+                          components={{
+                            a: ({ node, ...props }) => (
+                              <a
+                                {...props}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-primary font-bold underline hover:text-primary/80 transition-colors"
+                              />
+                            ),
+                            p: ({ node, ...props }) => <p {...props} className="mb-1.5 last:mb-0" />,
+                            ul: ({ node, ...props }) => <ul {...props} className="list-disc pl-4 space-y-1 mb-1.5" />,
+                            ol: ({ node, ...props }) => <ol {...props} className="list-decimal pl-4 space-y-1 mb-1.5" />,
+                            li: ({ node, ...props }) => <li {...props} className="leading-snug" />,
+                            strong: ({ node, ...props }) => <strong {...props} className="font-bold text-foreground" />,
+                          }}
+                        >
+                          {msg.content}
+                        </ReactMarkdown>
+                      )}
                     </div>
                   </motion.div>
                 ))}
                 {isLoading && (
                   <div className="flex justify-start">
-                    <div className="bg-muted p-3 rounded-2xl rounded-tl-none border border-white/5">
-                      <Loader2 className="h-4 w-4 animate-spin opacity-50" />
+                    <div className="bg-muted p-2.5 sm:p-3 rounded-2xl rounded-tl-none border border-white/5 flex items-center gap-2">
+                      <Loader2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 animate-spin opacity-60 text-primary shrink-0" />
+                      <span className="text-[10px] text-muted-foreground animate-pulse">Thinking fast with Groq...</span>
                     </div>
                   </div>
                 )}
               </div>
 
-              <form onSubmit={handleSendMessage} className="p-4 border-t border-white/10 bg-background/50 flex gap-3">
+              <form onSubmit={handleSendMessage} className="p-2.5 sm:p-3 border-t border-white/10 bg-background/50 flex gap-2 shrink-0">
                 <Input 
-                  placeholder="Type a question..." 
+                  placeholder="Ask anything about Rajeel..." 
                   value={chatInput} 
                   onChange={(e) => setChatInput(e.target.value)} 
-                  className="h-11 rounded-xl text-xs bg-muted/50 border-white/5 focus-visible:ring-primary/30" 
+                  className="h-10 rounded-xl text-xs bg-muted/50 border-white/5 focus-visible:ring-primary/30" 
                 />
-                <Button type="submit" size="icon" className="h-11 w-11 rounded-xl shadow-lg shrink-0">
-                  <Send size={18} />
+                <Button type="submit" size="icon" disabled={isLoading || !chatInput.trim()} className="h-10 w-10 rounded-xl shadow-lg shrink-0">
+                  <Send size={15} />
                 </Button>
               </form>
             </motion.div>
           )}
         </AnimatePresence>
         <motion.button 
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.92 }}
           onClick={() => setIsChatOpen(!isChatOpen)} 
-          className="w-16 h-16 rounded-full shadow-2xl neon-glow bg-primary text-primary-foreground flex items-center justify-center transition-all"
+          className="w-14 h-14 sm:w-16 sm:h-16 rounded-full shadow-2xl neon-glow bg-primary text-primary-foreground flex items-center justify-center transition-all"
         >
-          {isChatOpen ? <X size={24} /> : <MessageSquare size={24} />}
+          {isChatOpen ? <X size={22} /> : <MessageSquare size={22} />}
         </motion.button>
       </div>
     </div>
